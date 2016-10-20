@@ -1,0 +1,64 @@
+html {
+  color: #6d6d6d;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  background: #e7e7e7 url(body-bg.png) 0 0 repeat;
+}
+
+body {
+  background: transparent url(highlight-bg.jpg) 50% 0 no-repeat;
+  font-family: Sans-Serif;
+  text-align: justify;
+  padding: 16px;
+  margin: 0px;
+}
+
+body header table {
+  margin: auto;
+}
+
+body header table tr td h1 {
+  text-shadow: 2px 2px LightGrey;
+  font-size: 34pt;
+  color: black;
+}
+
+body header table tr td img {
+  height: 64px;
+  width: 64px;
+}
+
+body section {
+  width: 720px;
+  margin: 0 auto;
+}
+
+body section table {
+  width: 100%;
+  border: 0px;
+}
+
+body section table tr td {
+  text-align: center;
+}
+
+body section table tr td a img {
+  width: 320px;
+}
+
+a {
+  text-decoration: none;
+  color: #d5000d;
+}
+
+a:hover {
+  color: #c5000c;
+}
+
+hr {
+  background: transparent url('hr.png') 50% 0 no-repeat;
+  padding-bottom: 1em;
+  line-height: 1px;
+  margin-top: 1em;
+  border: none;
+  height: 1px;
+}
