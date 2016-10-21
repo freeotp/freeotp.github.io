@@ -1,0 +1,47 @@
+table, button, select, input {
+  width: 100%;
+}
+
+table {
+  margin-top: 32px;
+}
+
+main {
+  text-align: center;
+  margin: auto;
+}
+
+label {
+  text-align: left;
+}
+
+#image-display {
+  object-fit: cover;
+  height: 192px;
+  width: 192px;
+}
+
+td {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+input[type="text"] {
+  border-style: solid;
+  border-width: 1px;
+}
+
+#error {
+  position: absolute;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 64px;
+  opacity: 0.95;
+  right: 0;
+  left: 0;
+}
+
+#qrcode {
+  box-shadow: 5px 5px 5px #888888;
+  display: inline-block;
+}

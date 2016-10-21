@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- vim: set nowrap ts=2 sw=2: -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>FreeOTP - QR Code Generator</title>
+		<link rel="stylesheet" type="text/css" href="common.css" media="screen"></link>
+		<link rel="stylesheet" type="text/css" href="qrcode.css" media="screen"></link>
+    <script src="base32.js"></script>
+    <script src="qrcode.js"></script>
+		<meta charset="UTF-8" />
+  </head>
+
+  <body>
+		<header>
+      <h1>FreeOTP</h1>
+			<p>Two-Factor Authentication</p>
+		</header>
+
+		<main>
+			<div id="qrcode">
+				<img id="error" src="error.svg" alt="Invalid Token URI" />
+			</div>
+
+			<table>
+				<tr>
+					<td rowspan="6">
+						<img
+							id="image-display"
+							src="freeotp.png"
+							onLoad="makeQRCode(false)"
+							onError="makeQRCode(true)"
+							/>
+					</td>
+					<td colspan="2">
+						<input
+						  id="issuer"
+							type="text"
+							name="issuer"
+							placeholder="Issuer"
+							onInput="makeQRCode(false)"
+							/>
+					</td>
+					<td>
+						<select id="type" name="type" onChange="makeQRCode(false)" onBlur="makeQRCode(false)">
+							<option value="hotp">Counter</option>
+							<option value="totp">Timeout</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input
+						  id="account"
+							type="text"
+							name="account"
+							placeholder="Account"
+							onInput="makeQRCode(false)" />
+					</td>
+					<td>
+						<select id="algorithm" name="algorithm" onChange="makeQRCode(false)" onBlur="makeQRCode(false)">
+							<option value="SHA1">SHA1</option>
+							<option value="SHA224">SHA224</option>
+							<option value="SHA256">SHA256</option>
+							<option value="SHA384">SHA384</option>
+							<option value="SHA512">SHA512</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input id="image" type="text" name="image" placeholder="Image URL" onInput="makeQRCode(false)" />
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input id="secret" type="text" name="secret" placeholder="Secret" onInput="makeQRCode(false)" />
+					</td>
+					<td>
+						<button onClick="onRandomClicked(this)">Random</button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="digits">Digits</label>
+					</td>
+					<td>
+						<input
+							onInput="update(this, document.getElementById('digits-display'))"
+							name="digits"
+							type="range"
+							id="digits"
+							value="6"
+							step="2"
+							max="8"
+							min="6"
+							/>
+					</td>
+					<td id="digits-display">
+						6
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="period">Period</label>
+					</td>
+					<td>
+						<input
+							onInput="update(this, document.getElementById('period-display'))"
+							name="period"
+							type="range"
+							id="period"
+							value="30"
+							max="300"
+							step="5"
+							min="5"
+							/>
+					</td>
+					<td id="period-display">
+						30
+					</td>
+				</tr>
+			</table>
+		</main>
+
+		<footer>
+			<p>This QR code generator does not transmit any information.
+			   Don't believe us?
+				 <a href="https://github.com/freeotp/freeotp.github.io">Read the code</a>!
+			   It does, however, fetch the image at the URL specified.
+				 It might be possible for a malicious web server to use this request for
+				 tracking. Since FreeOTP does not control the servers responding to the
+				 requests on the URLs you provide, we cannot protect you from tracking.
+				 Caveat emptor.</p>
+		</footer>
+
+		<script type="text/javascript">
+			var qrcode = new QRCode(document.getElementById("qrcode"), {
+				correctLevel : QRCode.CorrectLevel.H,
+				text: window.location.href,
+				colorLight : "#ffffff",
+				colorDark : "#000000",
+				height: 256,
+				width: 256
+			});
+
+      function absolute(path) {
+				var a = document.createElement("a");
+				a.href = path;
+				return a.href;
+			}
+
+      function makeQRCode(imgerr) {
+				var algorithm = document.getElementById("algorithm").value;
+				var account = document.getElementById("account").value;
+				var issuer = document.getElementById("issuer").value;
+				var secret = document.getElementById("secret").value;
+				var digits = document.getElementById("digits").value;
+				var period = document.getElementById("period").value;
+				var image = document.getElementById("image").value;
+				var type = document.getElementById("type").value;
+				var err = false;
+
+				var uri = "otpauth://" + type + "/";
+
+				if (issuer.length > 0)
+					uri += encodeURIComponent(issuer) + ":";
+
+				uri += encodeURIComponent(account);
+				uri += "?secret=" + secret;
+				uri += "&algorithm=" + algorithm;
+				uri += "&digits=" + digits;
+				uri += "&period=" + period;
+
+				if (type == "hotp")
+					uri += "&counter=0";
+
+				if (image.length > 0)
+					uri += "&image=" + encodeURIComponent(image);
+				else
+					image = absolute("freeotp.png");
+
+				qrcode.clear();
+				qrcode.makeCode(uri);
+
+				if (issuer.match(/:/)) {
+					document.getElementById("issuer").style.borderColor = "red";
+					err = true;
+				} else {
+					document.getElementById("issuer").style.borderColor = "";
+				}
+
+				if (account.length == 0 || account.match(/:/)) {
+					document.getElementById("account").style.borderColor = "red";
+					err = true;
+				} else {
+					document.getElementById("account").style.borderColor = "";
+				}
+
+				if (!secret.match(/^[a-z2-7]+$/i)) {
+					document.getElementById("secret").style.borderColor = "red";
+					err = true;
+				} else {
+					document.getElementById("secret").style.borderColor = "";
+				}
+
+				var imgdsp = document.getElementById("image-display");
+				if (imgerr) {
+					document.getElementById("image").style.borderColor = "red";
+				} else if (imgdsp.src != image) {
+					document.getElementById("image").style.borderColor = "";
+					imgdsp.src = image;
+				}
+
+        document.getElementById("error").style.visibility = (err || imgerr) ? "visible" : "hidden";
+			}
+
+      function onRandomClicked(obj) {
+				var bytes = new Uint8Array(20);
+				window.crypto.getRandomValues(bytes);
+				document.getElementById("secret").value = base32.encode(bytes);
+				makeQRCode(false);
+			}
+
+      function update(from, to) {
+				to.innerHTML = from.value;
+				makeQRCode(false);
+			}
+
+      makeQRCode(false);
+		</script>
+  </body>
+</html>
