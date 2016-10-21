@@ -1,127 +1,33 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- vim: set nowrap ts=2 sw=2: -->
-<html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset='utf-8'>
     <title>FreeOTP</title>
-    <link rel="stylesheet" type="text/css" href="index.css" media="screen">
-    <script defer src="https://buttons.github.io/buttons.js"></script>
+		<link rel="stylesheet" type="text/css" href="index.css" media="screen"></link>
   </head>
 
   <body>
 		<header>
-			<table>
-				<tr>
-					<td style="vertical-align: middle;"><img src="https://lh3.ggpht.com/XrHHxpjdFjJ-pAj63VRshglFm8VtCA6S_QxYBufoEmcxU3LGfPHDt6g90g-vYHp6yfU=w300" /><td>
-					<td style="vertical-align: middle;"><h1>FreeOTP</h1></td>
-				<tr>
-			</table>
+      <h1>FreeOTP</h1>
+			<p>Two Factor Authentication</p>
 		</header>
 
-		<hr />
+		<main>
+			<section id="ios">
+				<a class="screenshot" href="https://itunes.apple.com/us/app/freeotp-authenticator/id872559395?mt=8"></a>
+				<a class="store" alt="iOS App" href="https://itunes.apple.com/us/app/freeotp-authenticator/id872559395?mt=8"></a>
+				<a class="github" alt="iOS GitHub Project" href="https://github.com/freeotp/freeotp-ios"></a>
+			</section>
 
-		<section>
-			<table>
-				<tr>
-					<td>
-						<a href="https://itunes.apple.com/us/app/freeotp-authenticator/id872559395?mt=8">
-							<img src="http://a1.mzstatic.com/us/r30/Purple5/v4/66/8b/9c/668b9cf1-3502-3683-7787-ef450ef90019/screen568x568.jpeg" />
-						</a>
-					</td>
-					<td>
-						<a href="https://play.google.com/store/apps/details?id=org.fedorahosted.freeotp&hl=en">
-							<img src="https://lh4.ggpht.com/mCBlwc-kwUaIQZXJUjLNorwWUhJN37ib_D6iik54cHP3l__YCE65FKSPKioAT-0ljsjn=h900" />
-						</a>
-					</td>
-				</tr>
+			<section id="android">
+				<a class="screenshot" href="https://play.google.com/store/apps/details?id=org.fedorahosted.freeotp"></a>
+				<a class="store" alt="Android App" href="https://play.google.com/store/apps/details?id=org.fedorahosted.freeotp"></a>
+				<a class="github" alt="Android GitHub Project" href="https://github.com/freeotp/freeotp-android"></a>
+			</section>
+		</main>
 
-				<tr>
-					<td>
-						<a href="https://itunes.apple.com/us/app/freeotp-authenticator/id872559395?mt=8">
-							<img src="https://linkmaker.itunes.apple.com/images/badges/en-us/badge_appstore-lrg.svg"
-									 alt="Download on the App Store"
-									 />
-						</a>
-					</td>
-					<td>
-						<a href="https://play.google.com/store/apps/details?id=org.fedorahosted.freeotp&hl=en">
-							<img src='https://upload.wikimedia.org/wikipedia/commons/c/cd/Get_it_on_Google_play.svg'
-									 alt="Get it on Google Play"
-									 />
-						</a>
-					</td>
-				</tr>
-
-				<tr>
-					<td>
-						<a href="https://github.com/freeotp/freeotp-ios"
-							 class="github-button"
-							 data-icon="octicon-eye"
-							 data-style="mega"
-							 data-count-href="/freeotp/freeotp-ios/watchers"
-							 data-count-api="/repos/freeotp/freeotp-ios#subscribers_count"
-							 data-count-aria-label="# watchers on GitHub"
-							 aria-label="Watch freeotp/freeotp-ios on GitHub">
-							Watch
-						</a>
-						<a href="https://github.com/freeotp/freeotp-ios/issues"
-							 class="github-button"
-							 data-icon="octicon-issue-opened"
-							 data-style="mega"
-							 data-count-api="/repos/freeotp/freeotp-ios#open_issues_count"
-							 data-count-aria-label="# issues on GitHub"
-							 aria-label="Issue freeotp/freeotp-ios on GitHub">
-							Issue
-						</a>
-						<a href="https://github.com/freeotp/freeotp-ios/fork"
-							 class="github-button"
-							 data-icon="octicon-repo-forked"
-							 data-style="mega"
-							 data-count-href="/freeotp/freeotp-ios/network"
-							 data-count-api="/repos/freeotp/freeotp-ios#forks_count"
-							 data-count-aria-label="# forks on GitHub"
-							 aria-label="Fork freeotp/freeotp-ios on GitHub">
-							Fork
-						</a>
-					</td>
-					<td>
-						<a href="https://github.com/freeotp/freeotp-android"
-							 class="github-button"
-							 data-icon="octicon-eye"
-							 data-style="mega"
-							 data-count-href="/freeotp/freeotp-android/watchers"
-							 data-count-api="/repos/freeotp/freeotp-android#subscribers_count"
-							 data-count-aria-label="# watchers on GitHub"
-							 aria-label="Watch freeotp/freeotp-android on GitHub">
-							Watch
-						</a>
-						<a href="https://github.com/freeotp/freeotp-android/issues"
-							 class="github-button"
-							 data-icon="octicon-issue-opened"
-							 data-style="mega"
-							 data-count-api="/repos/freeotp/freeotp-android#open_issues_count"
-							 data-count-aria-label="# issues on GitHub"
-							 aria-label="Issue freeotp/freeotp-android on GitHub">
-							Issue
-						</a>
-						<a href="https://github.com/freeotp/freeotp-android/fork"
-							 class="github-button"
-							 data-icon="octicon-repo-forked"
-							 data-style="mega"
-							 data-count-href="/freeotp/freeotp-android/network"
-							 data-count-api="/repos/freeotp/freeotp-android#forks_count"
-							 data-count-aria-label="# forks on GitHub"
-							 aria-label="Fork freeotp/freeotp-android on GitHub">
-							Fork
-						</a>
-					</td>
-				</tr>
-			</table>
-		</section>
-
-		<hr />
-
-		<section>
+		<footer>
 			<p>FreeOTP is a two-factor authentication application for systems utilizing
 				 one-time password protocols. Tokens can be added easily by scanning a
 				 QR-code.</p>
@@ -134,8 +40,8 @@
 				 <a href="http://www.freeipa.org">FreeIPA</a>.</p>
 
 			<p>FreeOTP is sponsored and officially published by
-			   <a href="https://www.redhat.com">Red Hat</a>. Contributions are welcome
+				 <a href="https://www.redhat.com">Red Hat</a>. Contributions are welcome
 				 under the Apache 2.0 license.</p>
-		</section>
+		</footer>
   </body>
 </html>
