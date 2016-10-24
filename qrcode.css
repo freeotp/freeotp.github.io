@@ -1,9 +1,5 @@
-table, button, select, input {
+table, button, select, label, input[type="range"], input[type="text"] {
   width: 100%;
-}
-
-table {
-  margin-top: 32px;
 }
 
 main {
@@ -11,8 +7,26 @@ main {
   margin: auto;
 }
 
-label {
+table {
+  margin-top: 32px;
+}
+
+td {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+.shrink {
+  width: 1%;
+}
+
+.left {
   text-align: left;
+}
+
+label {
+  display: inline-block;
+  white-space: nowrap;
 }
 
 #image-display {
@@ -21,14 +35,14 @@ label {
   width: 192px;
 }
 
-td {
-  padding-right: 8px;
-  padding-left: 8px;
+input {
+  margin: 0px;
 }
 
 input[type="text"] {
   border-style: solid;
   border-width: 1px;
+  height: 100%;
 }
 
 #error {
