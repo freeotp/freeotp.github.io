@@ -80,7 +80,7 @@
 				</tr>
 				<tr>
 					<td colspan="2">
-						<input id="secret" type="text" name="secret" placeholder="Secret" onInput="makeQRCode(false)" />
+						<input id="secret" type="text" name="secret" placeholder="Secret (Base32)" onInput="makeQRCode(false)" />
 					</td>
 					<td>
 						<button onClick="onRandomClicked(this)">Random</button>
@@ -206,7 +206,7 @@
 					document.getElementById("account").style.borderColor = "";
 				}
 
-				if (!secret.match(/^[a-z2-7]+$/i)) {
+				if (!secret.match(/^[a-z2-7]{32,}$/i)) {
 					document.getElementById("secret").style.borderColor = "red";
 					err = true;
 				} else {
