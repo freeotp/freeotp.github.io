@@ -58,3 +58,7 @@ a {
 a:hover {
   color: #c5000c;
 }
+
+footer {
+  padding-bottom: 100%;
+}
