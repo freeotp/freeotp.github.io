@@ -1,31 +1,70 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <!-- vim: set nowrap ts=2 sw=2: -->
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>FreeOTP</title>
-		<link rel="stylesheet" type="text/css" href="common.css" media="screen"></link>
-		<link rel="stylesheet" type="text/css" href="index.css" media="screen"></link>
+		<link rel="stylesheet" type="text/css" href="common.css" media="screen" />
 		<meta charset="UTF-8" />
+    <style>
+      main {
+        align-content: flex-start;
+        flex-wrap: wrap;
+        display: flex;
+      }
+
+      section {
+        padding: 0 4px 0 4px;
+        min-width: 200px;
+        flex: 1 1 0;
+      }
+
+      .screenshot img {
+        width: calc(100% - 2px);
+        border: 1px solid black;
+        display: block;
+      }
+
+      .store img, .github img {
+        padding: 8px 4px 0 4px;
+        width: calc(50% - 8px);
+      }
+
+      .github img {
+        float: right;
+      }
+    </style>
   </head>
 
   <body>
-		<header>
+    <header>
       <h1>FreeOTP</h1>
-			<p>Two-Factor Authentication</p>
-		</header>
+      Two-Factor Authentication
+    </header>
 
 		<main>
 			<section id="ios">
-				<a class="screenshot" href="https://itunes.apple.com/us/app/freeotp-authenticator/id872559395?mt=8"></a>
-				<a class="store" alt="iOS App" href="https://itunes.apple.com/us/app/freeotp-authenticator/id872559395?mt=8"></a>
-				<a class="github" alt="iOS GitHub Project" href="https://github.com/freeotp/freeotp-ios"></a>
+				<a class="screenshot" href="https://itunes.apple.com/us/app/freeotp-authenticator/id872559395?mt=8">
+          <img src="img/ios.png" alt="iOS" />
+        </a>
+				<a class="store" alt="iOS App" href="https://itunes.apple.com/us/app/freeotp-authenticator/id872559395?mt=8">
+          <img src="img/appstore.svg" alt="Apple App Store" />
+        </a>
+				<a class="github" alt="iOS GitHub Project" href="https://github.com/freeotp/freeotp-ios">
+          <img src="img/github.svg" alt="GitHub" />
+        </a>
 			</section>
 
 			<section id="android">
-				<a class="screenshot" href="https://play.google.com/store/apps/details?id=org.fedorahosted.freeotp"></a>
-				<a class="store" alt="Android App" href="https://play.google.com/store/apps/details?id=org.fedorahosted.freeotp"></a>
-				<a class="github" alt="Android GitHub Project" href="https://github.com/freeotp/freeotp-android"></a>
+				<a class="screenshot" href="https://play.google.com/store/apps/details?id=org.fedorahosted.freeotp">
+          <img src="img/android.png" alt="iOS" />
+        </a>
+				<a class="store" alt="Android App" href="https://play.google.com/store/apps/details?id=org.fedorahosted.freeotp">
+          <img src="img/playstore.svg" alt="Google Play Store" />
+        </a>
+				<a class="github" alt="Android GitHub Project" href="https://github.com/freeotp/freeotp-android">
+          <img src="img/github.svg" alt="GitHub" />
+        </a>
 			</section>
 		</main>
 

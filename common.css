@@ -1,64 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 html {
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
-  background: #e7e7e7 url(bg.png) 0 0 repeat;
-  color: #6d6d6d;
+  background-color: white;
 }
 
 body {
-  background: transparent url(highlight.jpg) 50% 0 no-repeat;
   font-family: Sans-Serif;
-  text-align: justify;
-  padding: 16px;
-  margin: 0px;
+  text-align: center;
+  max-width: 640px;
+  margin: auto;
+  width: 90vw;
 }
 
-header, main, footer {
-  width: 640px;
-  margin: auto;
+body > * {
+  text-align: justify;
+  padding: 1em;
+}
+
+body > :not(:first-child) {
+  border-top: 1px solid black;
 }
 
 header {
-  background-image: url('freeotp.png');
+  background-image: url("img/freeotp.svg");
+  background-position: 0 0.5em;
   background-repeat: no-repeat;
-  background-size: 96px 96px;
-  display: block;
-  height: 128px;
+  background-size: 6em 6em;
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 6.5em;
+  font-size: 3.25vw;
+  margin: 0.5em auto 0.5em auto;
 }
 
-header h1 {
-  text-shadow: 2px 2px LightGrey;
-  padding-left: 112px;
-  padding-top: 12px;
-  font-size: 34pt;
+header > h1 {
+  font-size: 3em;
   color: black;
-  margin: 0px;
 }
 
-header p {
-  padding-bottom: 10px;
-  padding-left: 112px;
-  margin: 0px;
-}
-
-header::after, footer::before {
-  background: url("hr.png");
-  margin-bottom: 16px;
-  margin-top: 16px;
-  display: block;
-  width: 100%;
-  height: 1px;
-  content: "";
-}
-
-a {
-  text-decoration: none;
-  color: #d5000d;
-}
-
-a:hover {
-  color: #c5000c;
+p:not(:last-of-type) {
+  margin-bottom: 1em;
 }
 
 footer {
-  padding-bottom: 100%;
+  font-size: 0.9em;
+}
+
+@media screen and (min-width: 480px) {
+  header {
+    font-size: 1em;
+  }
 }
