@@ -28,7 +28,7 @@
 
 		  <table>
 			  <tr>
-				  <td colspan="3">
+				  <td colspan="4">
 					  <input
 					    id="issuer"
 						  type="text"
@@ -50,7 +50,7 @@
 				  </td>
 			  </tr>
 			  <tr>
-				  <td colspan="3">
+				  <td colspan="4">
 					  <input
 					    id="account"
 						  type="text"
@@ -66,7 +66,7 @@
 				  </td>
 			  </tr>
 			  <tr>
-				  <td colspan="3">
+				  <td colspan="4">
 					  <input id="image" type="text" name="image"
 					    placeholder="Image URL (optional)" onInput="onValueChanged()" />
 				  </td>
@@ -78,7 +78,7 @@
 				  </td>
 			  </tr>
 			  <tr>
-				  <td colspan="3">
+				  <td colspan="4">
 					  <input id="secret" type="text" name="secret"
 					    placeholder="Secret (Base32)" onInput="onValueChanged()" />
 				  </td>
@@ -105,7 +105,11 @@
 				  <td id="digits-display" class="shrink left">
 					  6
 				  </td>
-			    <td>
+          <td id="lock-display" class="shrink left">
+            <label class="lock-label" for="lock">Lock</label>
+            <input id="lock" type="checkbox" name="lock" onClick="onLockClicked()">
+          </td>
+          <td>
 					  <select id="period" name="period"
 					    onChange="onValueChanged()"
 					    onBlur="onValueChanged()">
