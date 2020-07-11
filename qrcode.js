@@ -11,7 +11,10 @@ function makeURI() {
 	var uri = "otpauth://" + type + "/";
 
 	if (issuer.length > 0)
-		uri += encodeURIComponent(issuer) + ":";
+		uri += encodeURIComponent(issuer);
+	
+	if (account.length > 0)
+		uri += ":";
 
 	uri += encodeURIComponent(account);
 	uri += "?secret=" + secret;
