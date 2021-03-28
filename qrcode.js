@@ -15,6 +15,8 @@ function makeURI() {
 
 	uri += encodeURIComponent(account);
 	uri += "?secret=" + secret;
+	if (issuer.length > 0)
+		uri += '&issuer=' + issuer;
 	uri += "&algorithm=" + algorithm;
 	uri += "&digits=" + digits;
 	uri += "&period=" + period;
