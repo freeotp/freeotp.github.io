@@ -33,7 +33,7 @@ main {
 }
 
 #digits-display {
-  text-align: right;
+  text-align: left;
   width: 2em;
 }
 

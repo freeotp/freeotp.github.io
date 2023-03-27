@@ -49,6 +49,17 @@ footer {
   font-size: 0.9em;
 }
 
+/* Prevent wrapping */
+#lock {
+	margin-left: -24px;
+}
+
+.lock-label {
+    float: left;
+    width: 10%;
+    margin-left:18px;
+}
+
 @media screen and (min-width: 480px) {
   header {
     font-size: 1em;

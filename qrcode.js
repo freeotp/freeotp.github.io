@@ -7,6 +7,7 @@ function makeURI() {
 	var digits = document.getElementById("digits").value;
 	var period = document.getElementById("period").value;
 	var image = document.getElementById("image").value;
+	var lock = document.getElementById("lock").checked;
 	var type = document.querySelector('input[name="type"]:checked').value;
 	var uri = "otpauth://" + type + "/";
 
@@ -20,6 +21,7 @@ function makeURI() {
 	uri += "&algorithm=" + algorithm;
 	uri += "&digits=" + digits;
 	uri += "&period=" + period;
+	uri += "&lock=" + lock;
 
 	if (type == "hotp")
 		uri += "&counter=0";
@@ -68,4 +70,9 @@ function onRandomClicked() {
 	window.crypto.getRandomValues(bytes);
 	secret.value = base32.encode(bytes);
 	onValueChanged();
+}
+
+function onLockClicked() {
+    var lock = document.getElementById("lock");
+    onValueChanged();
 }
