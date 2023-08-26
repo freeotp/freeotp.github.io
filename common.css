@@ -1,67 +1,26 @@
-* {
-  margin: 0;
-  padding: 0;
+a {
+  color: var(--bs-body-color) !important;
+  text-decoration: none !important;
 }
 
-html {
-  background-color: white;
+a:hover {
+  color: var(--bs-link-hover-color) !important;
+  text-decoration: underline !important;
 }
 
-body {
-  font-family: Sans-Serif;
-  text-align: center;
-  max-width: 640px;
-  margin: auto;
-  width: 90vw;
+#logo {
+  height: 48px;
 }
 
-body > * {
-  text-align: justify;
-  padding: 1em;
+#welcome {
+  height: 100vh;
+  max-height: 576px;
 }
 
-body > :not(:first-child) {
-  border-top: 1px solid black;
+#features i {
+  font-size: 4rem !important;
 }
 
-header {
-  background-image: url("img/freeotp.svg");
-  background-position: 0 0.5em;
-  background-repeat: no-repeat;
-  background-size: 6em 6em;
-  display: inline-block;
-  white-space: nowrap;
-  padding-left: 6.5em;
-  font-size: 3.25vw;
-  margin: 0.5em auto 0.5em auto;
-}
-
-header > h1 {
-  font-size: 3em;
-  color: black;
-}
-
-p:not(:last-of-type) {
-  margin-bottom: 1em;
-}
-
-footer {
-  font-size: 0.9em;
-}
-
-/* Prevent wrapping */
-#lock {
-	margin-left: -24px;
-}
-
-.lock-label {
-    float: left;
-    width: 10%;
-    margin-left:18px;
-}
-
-@media screen and (min-width: 480px) {
-  header {
-    font-size: 1em;
-  }
+footer * {
+  color: var(--bs-secondary-color);
 }

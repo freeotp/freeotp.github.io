@@ -1,95 +1,125 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<!-- vim: set nowrap ts=2 sw=2: -->
+<!DOCTYPE html>
+<html lang="en">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <title>FreeOTP</title>
-		<link rel="stylesheet" type="text/css" href="common.css" media="screen" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-		<meta charset="UTF-8" />
-    <style>
-      main {
-        align-content: flex-start;
-        flex-wrap: wrap;
-        display: flex;
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="common.css">
+  <link rel="shortcut icon" href="/img/freeotp.svg" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<title>FreeOTP</title>
+</head>
 
-      section {
-        padding: 0 4px 0 4px;
-        min-width: 200px;
-        flex: 1 1 0;
-      }
+<body data-bs-theme="dark">
+  <header class="bg-body-tertiary border-bottom container-fluid position-fixed">
+    <div class="container">
+      <nav class="d-flex navbar">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="">
+            <img class="rounded" id="logo" src="/img/freeotp.svg" alt="FreeOTP Logo">
+          </a>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+              aria-expanded="false">Language</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item">English</a></li>
+              <li><a class="dropdown-item">Spanish</a></li>
+              <li><a class="dropdown-item">French</a></li>
+              <li><a class="dropdown-item">German</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
 
-      .screenshot img {
-        width: calc(100% - 2px);
-        border: 1px solid black;
-        display: block;
-      }
+  <main>
+    <section class="bg-body-secondary border-bottom d-flex align-items-center" id="welcome">
+      <div class="container p-5">
+        <div class="row">
+          <div class="col-6">
+            <h1>FreeOTP</h1>
+            <p class="text-secondary">
+              A free and open-source app for Android and iOS to generate one-time passwords.
+            </p>
+            <a href="/download.html" class="btn btn-primary">Get FreeOTP</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="border-bottom d-flex align-items-center p-5" id="features">
+      <div class="container">
+        <div class="mb-5 text-center">
+          <h2>Why use FreeOTP?</h2>
+          <p class="text-secondary">Explore below to see why FreeOTP is a simple and secure mobile authenticator.</p>
+        </div>
+        <div class="row">
+          <div class="bg-body-tertiary col rounded m-2 p-4" id="security">
+            <div class="mb-4 text-center"><i class="bi bi-shield-fill fs-1"></i></div>
+            <h3>Security</h3>
+            <p class="text-secondary">FreeOTP uses <a href="https://www.ietf.org/rfc/rfc4226.txt">HOTP</a> and <a
+                href="https://www.ietf.org/rfc/rfc6238.txt">TOTP</a> by default to secure your tokens. This means that
+              no proprietary server-side component is necessary.</p>
+          </div>
+          <div class="bg-body-tertiary col rounded m-2 p-4" id="encryption">
+            <div class="mb-4 text-center"><i class="bi bi-qr-code-scan fs-1"></i></div>
+            <h3>Simple Setup</h3>
+            <p class="text-secondary">FreeOTP supports scaning a QR code to setup new tokens.</p>
+          </div>
+          <div class="bg-body-tertiary col rounded m-2 p-4" id="encryption">
+            <div class="mb-4 text-center"><i class="bi bi-fingerprint fs-1"></i></div>
+            <h3>Encryption</h3>
+            <p class="text-secondary">All of your tokens are encrypted by default. Just select a password that you would
+              enter again if you restore your tokens.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="bg-body-tertiary col rounded m-2 p-4" id="backups">
+            <div class="mb-4 text-center"><i class="bi bi-hdd-fill fs-1"></i></div>
+            <h3>Backups</h3>
+            <p class="text-secondary">FreeOTP allows you to export and import your tokens. Don't worry about losing
+              access.</p>
+          </div>
+          <div class="bg-body-tertiary col rounded m-2 p-4" id="offline-access">
+            <div class="mb-4 text-center"><i class="bi bi-braces fs-1"></i></div>
+            <h3>Open-Source</h3>
+            <p class="text-secondary">The source code is available on GitHub. FreeOTP is developed by volunteers and
+              published by RedHat.</p>
+          </div>
+          <div class="bg-body-tertiary col rounded m-2 p-4" id="offline-access">
+            <div class="mb-4 text-center"><i class="bi bi-wifi-off fs-1"></i></div>
+            <h3>Offline Access</h3>
+            <p class="text-secondary">You don't need to be connected to the internet to access your tokens.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-      .store > img, .github > img, .fdroid > img {
-        padding: 8px 4px 0 4px;
-        width: calc(50% - 8px);
-      }
+  <footer class="bg-body-secondary p-4">
+    <div class="container">
+      <div class="row">
+        <ul class="col-2 list-unstyled">
+          <h5>About</h5>
+          <li><a href="/privacy.html">Privacy</a></li>
+          <li><a href="https://github.com/freeotp/">Source Code</a></li>
+        </ul>
+        <ul class="col-2 list-unstyled">
+          <h5>Tools</h5>
+          <li><a href="/qrcode.html">QR Code Generator</a></li>
+        </ul>
+        <div id="copyright">© 2023 <a href="https://www.redhat.com/">Red Hat, Inc.</a></div>
+      </div>
+    </div>
+  </footer>
 
-      .github img {
-        float: right;
-      }
-    </style>
-  </head>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+</body>
 
-  <body>
-    <header>
-      <h1>FreeOTP</h1>
-      Two-Factor Authentication
-    </header>
-
-		<main>
-			<section id="ios">
-				<a class="screenshot" href="https://apps.apple.com/app/freeotp-authenticator/id872559395">
-          <img src="img/ios.png" alt="iOS" />
-        </a>
-				<a class="store" alt="iOS App" href="https://apps.apple.com/app/freeotp-authenticator/id872559395">
-          <img src="img/appstore.svg" alt="Apple App Store" />
-        </a>
-				<a class="github" alt="iOS GitHub Project" href="https://github.com/freeotp/freeotp-ios">
-          <img src="img/github.svg" alt="GitHub" />
-        </a>
-			</section>
-
-			<section id="android">
-				<a class="screenshot" href="https://play.google.com/store/apps/details?id=org.fedorahosted.freeotp">
-          <img src="img/android.png" alt="Android" />
-        </a>
-				<a class="store" alt="Android App" href="https://play.google.com/store/apps/details?id=org.fedorahosted.freeotp">
-          <img src="img/playstore.svg" alt="Google Play Store" />
-        </a>
-				<a class="github" alt="Android GitHub Project" href="https://github.com/freeotp/freeotp-android">
-          <img src="img/github.svg" alt="GitHub" />
-        </a>
-				<a class="fdroid" alt="Android App (F-Droid)" href="https://f-droid.org/packages/org.fedorahosted.freeotp">
-          <img src="img/fdroid.svg" alt="F-Droid" />
-        </a>
-			</section>
-		</main>
-
-		<footer>
-			<p>FreeOTP is a two-factor authentication application for systems utilizing
-				 one-time password protocols. Tokens can be added easily by scanning a
-				 QR code. If you need to generate a QR code, try our
-				 <a href="qrcode.html">QR code generator</a>.</p>
-
-			<p>FreeOTP implements open standards:
-				 <a href="https://www.ietf.org/rfc/rfc4226.txt">HOTP</a> and
-				 <a href="https://www.ietf.org/rfc/rfc6238.txt">TOTP</a>. This means that no
-				 proprietary server-side component is necessary: use any server-side
-				 component that implements these standards. We recommend
-				 <a href="https://www.freeipa.org/">FreeIPA</a>.</p>
-
-      <p>FreeOTP is sponsored and officially published by
-         <a href="https://www.redhat.com">Red Hat</a>. Pull requests
-         <a href="https://github.com/freeotp">on GitHub</a> are welcome under the
-         <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>. Feel free to review our
-         <a href="privacy.html">privacy policy</a>.</p>
-		</footer>
-  </body>
 </html>
