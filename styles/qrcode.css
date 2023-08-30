@@ -79,3 +79,7 @@ input[type="text"]:not(.error) {
 input[type="text"].error {
   border-color: red;
 }
+
+*, ::after, ::before {
+  box-sizing: unset !important;
+}
