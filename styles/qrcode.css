@@ -17,6 +17,10 @@ main {
   margin: 0 auto 0.5em auto;
 }
 
+#urilink :is(*, ::after, ::before) {
+  box-sizing: unset !important;
+}
+
 #qrcode {
   position: relative;
   max-width: 256px;
@@ -58,10 +62,6 @@ td:not(:first-of-type) {
   width: 1%;
 }
 
-.left {
-  text-align: left;
-}
-
 label {
   display: inline-block;
   white-space: nowrap;
@@ -77,9 +77,5 @@ input[type="text"]:not(.error) {
 }
 
 input[type="text"].error {
-  border-color: red;
-}
-
-*, ::after, ::before {
-  box-sizing: unset !important;
+  border-color: var(--bs-warning);
 }
