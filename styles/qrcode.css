@@ -27,6 +27,11 @@ main {
   display: block;
 }
 
+#qrcode img:last-child {
+  height: 100%;
+  width: 100%;
+}
+
 #preview {
   position: absolute;
   padding: calc(100% / 3);
@@ -34,11 +39,6 @@ main {
   width: calc(100% / 3);
   left: 0;
   top: 0;
-}
-
-#qrcode img:last-child {
-  height: 100%;
-  width: 100%;
 }
 
 #digits-display {
@@ -65,15 +65,6 @@ td:not(:first-of-type) {
 label {
   display: inline-block;
   white-space: nowrap;
-}
-
-input[type="text"] {
-  border: 1px solid;
-  height: 100%;
-}
-
-input[type="text"]:not(.error) {
-  border-color: black;
 }
 
 input[type="text"].error {
