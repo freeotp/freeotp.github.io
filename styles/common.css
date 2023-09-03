@@ -1,0 +1,26 @@
+a {
+  color: var(--bs-body-color) !important;
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: var(--bs-link-hover-color) !important;
+  text-decoration: underline !important;
+}
+
+#logo {
+  height: 48px;
+}
+
+#welcome {
+  height: 100vh;
+  max-height: 576px;
+}
+
+#features i {
+  font-size: 4rem !important;
+}
+
+footer * {
+  color: var(--bs-secondary-color);
+}
