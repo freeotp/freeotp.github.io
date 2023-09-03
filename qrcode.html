@@ -5,8 +5,6 @@
 	<title>FreeOTP - QR Code Generator</title>
 	<link rel="stylesheet" type="text/css" href="/styles/common.css" media="screen">
 	<link rel="stylesheet" type="text/css" href="/styles/qrcode.css" media="screen">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 	<script src="lib/base32.js"></script>
 	<script src="lib/qrcode.js"></script>
 	<script src="qrcode.js"></script>
@@ -16,117 +14,107 @@
 
 <body>
 	<header>
-		<div class="container">
-			<h1><a href="./">FreeOTP</a></h1>
-			Two-Factor Authentication
-		</div>
+		<h1><a href="./">FreeOTP</a></h1>
+		Two-Factor Authentication
 	</header>
 
 	<main>
-		<div class="container">
-			<a id="urilink">
-				<div id="qrcode">
-					<img id="preview" alt="QR Code Preview" src="img/freeotp.svg" onError="onImageError()">
-				</div>
-			</a>
+		<a id="urilink">
+			<div id="qrcode">
+				<img id="preview" alt="QR Code Preview" src="img/freeotp.svg" onError="onImageError()">
+			</div>
+		</a>
 
-			<table>
-				<tr>
-					<td colspan="4">
-						<input id="issuer" type="text" name="issuer" placeholder="Issuer (optional)"
-							onInput="onValueChanged()">
-					</td>
-					<td class="shrink left">
-						<select id="algorithm" name="algorithm" onChange="onValueChanged()" onBlur="onValueChanged()">
-							<option value="SHA1">SHA1</option>
-							<option value="SHA224">SHA224</option>
-							<option value="SHA256" selected="selected">SHA256</option>
-							<option value="SHA384">SHA384</option>
-							<option value="SHA512">SHA512</option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="4">
-						<input id="account" type="text" name="account" placeholder="Account" onInput="onValueChanged()">
-					</td>
-					<td class="shrink left">
-						<label for="counter">Counter</label>
-						<input id="counter" type="radio" name="type" value="hotp" onChange="onValueChanged()"
-							checked="checked">
-					</td>
-				</tr>
-				<tr>
-					<td colspan="4">
-						<input id="image" type="text" name="image" placeholder="Image URL (optional)"
-							onInput="onValueChanged()">
-					</td>
-					<td class="shrink left">
-						<label for="timeout">Timeout</label>
-						<input id="timeout" type="radio" name="type" value="totp" onChange="onValueChanged()">
-					</td>
-				</tr>
-				<tr>
-					<td colspan="4">
-						<input id="secret" type="text" name="secret" placeholder="Secret (Base32)"
-							onInput="onValueChanged()">
-					</td>
-					<td>
-						<button id="random" onClick="onRandomClicked()">Random</button>
-					</td>
-				</tr>
-				<tr>
-					<td class="shrink left">
-						<label for="digits">Digits</label>
-					</td>
-					<td>
-						<input onInput="update(this, 'digits-display')" name="digits" type="range" id="digits" value="6"
-							step="1" max="12" min="6">
-					</td>
-					<td id="digits-display" class="shrink left">
-						6
-					</td>
-					<td id="lock-display" class="shrink left">
-						<label class="lock-label" for="lock">Lock</label>
-						<input id="lock" type="checkbox" name="lock" onClick="onLockClicked()">
-					</td>
-					<td>
-						<select id="period" name="period" onChange="onValueChanged()" onBlur="onValueChanged()">
-							<option value="15">15s</option>
-							<option value="30" selected="selected">30s</option>
-							<option value="60">1m</option>
-							<option value="120">2m</option>
-							<option value="300">5m</option>
-							<option value="600">10m</option>
-						</select>
-					</td>
-				</tr>
-			</table>
-		</div>
+		<table>
+			<tr>
+				<td colspan="4">
+					<input id="issuer" type="text" name="issuer" placeholder="Issuer (optional)"
+						onInput="onValueChanged()">
+				</td>
+				<td class="shrink left">
+					<select id="algorithm" name="algorithm" onChange="onValueChanged()" onBlur="onValueChanged()">
+						<option value="SHA1">SHA1</option>
+						<option value="SHA224">SHA224</option>
+						<option value="SHA256" selected="selected">SHA256</option>
+						<option value="SHA384">SHA384</option>
+						<option value="SHA512">SHA512</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4">
+					<input id="account" type="text" name="account" placeholder="Account" onInput="onValueChanged()">
+				</td>
+				<td class="shrink left">
+					<label for="counter">Counter</label>
+					<input id="counter" type="radio" name="type" value="hotp" onChange="onValueChanged()"
+						checked="checked">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4">
+					<input id="image" type="text" name="image" placeholder="Image URL (optional)"
+						onInput="onValueChanged()">
+				</td>
+				<td class="shrink left">
+					<label for="timeout">Timeout</label>
+					<input id="timeout" type="radio" name="type" value="totp" onChange="onValueChanged()">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4">
+					<input id="secret" type="text" name="secret" placeholder="Secret (Base32)"
+						onInput="onValueChanged()">
+				</td>
+				<td>
+					<button id="random" onClick="onRandomClicked()">Random</button>
+				</td>
+			</tr>
+			<tr>
+				<td class="shrink left">
+					<label for="digits">Digits</label>
+				</td>
+				<td>
+					<input onInput="update(this, 'digits-display')" name="digits" type="range" id="digits" value="6"
+						step="1" max="12" min="6">
+				</td>
+				<td id="digits-display" class="shrink left">
+					6
+				</td>
+				<td id="lock-display" class="shrink left">
+					<label class="lock-label" for="lock">Lock</label>
+					<input id="lock" type="checkbox" name="lock" onClick="onLockClicked()">
+				</td>
+				<td>
+					<select id="period" name="period" onChange="onValueChanged()" onBlur="onValueChanged()">
+						<option value="15">15s</option>
+						<option value="30" selected="selected">30s</option>
+						<option value="60">1m</option>
+						<option value="120">2m</option>
+						<option value="300">5m</option>
+						<option value="600">10m</option>
+					</select>
+				</td>
+			</tr>
+		</table>
 	</main>
 
 	<footer>
-		<div class="container">
-			<p>For an explanation of fields, please see the
-				<a href="https://github.com/google/google-authenticator/wiki/Key-Uri-Format">
-					OTP Key URI Format</a> page.
-			</p>
+		<p>For an explanation of fields, please see the
+			<a href="https://github.com/google/google-authenticator/wiki/Key-Uri-Format">
+				OTP Key URI Format</a> page.
+		</p>
 
-			<p>This QR code generator does not transmit any information.
-				Don't believe us?
-				<a href="https://github.com/freeotp/freeotp.github.io">Read the code</a>!
-				It does, however, fetch the image at the URL specified.
-				It might be possible for a malicious web server to use this request for
-				tracking. Since FreeOTP does not control the servers responding to the
-				requests on the URLs you provide, we cannot protect you from tracking.
-				Caveat emptor.
-			</p>
-		</div>
+		<p>This QR code generator does not transmit any information.
+			Don't believe us?
+			<a href="https://github.com/freeotp/freeotp.github.io">Read the code</a>!
+			It does, however, fetch the image at the URL specified.
+			It might be possible for a malicious web server to use this request for
+			tracking. Since FreeOTP does not control the servers responding to the
+			requests on the URLs you provide, we cannot protect you from tracking.
+			Caveat emptor.
+		</p>
 	</footer>
-
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
-		integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
-		crossorigin="anonymous"></script>
 
 	<script>
 		var qrcode = new QRCode(document.getElementById("qrcode"), {
