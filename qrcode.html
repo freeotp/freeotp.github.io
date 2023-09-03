@@ -15,123 +15,137 @@
 </head>
 
 <body data-bs-theme="dark">
-	<header>
+	<header class="bg-body-tertiary border-bottom container-fluid position-fixed">
 		<div class="container">
-			<h1><a href="./">FreeOTP</a></h1>
-			Two-Factor Authentication
+			<nav class="d-flex navbar">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="">
+						<img class="rounded" id="logo" src="/img/freeotp.svg" alt="FreeOTP Logo">
+					</a>
+				</div>
+			</nav>
 		</div>
 	</header>
 
 	<main>
-		<div class="container">
-			<a id="urilink">
-				<div id="qrcode">
-					<img id="preview" alt="QR Code Preview" src="img/freeotp.svg" onError="onImageError()">
-				</div>
-			</a>
+		<section>
+			<div class="container">
+				<a class="p-5 d-flex justify-content-center" id="urilink">
+					<div id="qrcode">
+						<img id="preview" alt="QR Code Preview" src="img/freeotp.svg" onError="onImageError()">
+					</div>
+				</a>
 
-			<table>
-				<tr>
-					<td class="pb-3" colspan="4">
-						<input class="form-control" id="issuer" type="text" name="issuer"
-							placeholder="Issuer (optional)" onInput="onValueChanged()">
-					</td>
-					<td class="pb-3 shrink left">
-						<select class="form-select" id="algorithm" name="algorithm" onChange="onValueChanged()"
-							onBlur="onValueChanged()">
-							<option value="SHA1">SHA1</option>
-							<option value="SHA224">SHA224</option>
-							<option value="SHA256" selected="selected">SHA256</option>
-							<option value="SHA384">SHA384</option>
-							<option value="SHA512">SHA512</option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td class="pb-3" colspan="4">
-						<input class="form-control" id="account" type="text" name="account" placeholder="Account"
-							onInput="onValueChanged()">
-					</td>
-					<td class="pb-3 shrink left">
-						<div class="form-check">
-							<label class="form-check-label" for="counter">Counter</label>
-							<input class="form-check-input" id="counter" type="radio" name="type" value="hotp"
-								onChange="onValueChanged()" checked="checked">
+				<div>
+					<div class="pb-4 row">
+						<div class="col input-group">
+							<span class="input-group-text">Account</span>
+							<input class="form-control" id="account" type="text" name="account"
+								onInput="onValueChanged()">
 						</div>
-					</td>
-				</tr>
-				<tr>
-					<td class="pb-3" colspan="4">
-						<input class="form-control" id="image" type="text" name="image"
-							placeholder="Image URL (optional)" onInput="onValueChanged()">
-					</td>
-					<td class="pb-3 shrink left">
-						<div class="form-check">
-							<label class="form-check-label" for="timeout">Timeout</label>
-							<input class="form-check-input" id="timeout" type="radio" name="type" value="totp"
-								onChange="onValueChanged()">
+						<div class="col input-group">
+							<span class="input-group-text">Algorithm</span>
+							<select class="form-select" id="algorithm" name="algorithm" onChange="onValueChanged()"
+								onBlur="onValueChanged()">
+								<option value="SHA1">SHA1</option>
+								<option value="SHA224">SHA224</option>
+								<option value="SHA256" selected="selected">SHA256</option>
+								<option value="SHA384">SHA384</option>
+								<option value="SHA512">SHA512</option>
+							</select>
 						</div>
-					</td>
-				</tr>
-				<tr>
-					<td class="pb-3" colspan="4">
-						<input class="form-control" id="secret" type="text" name="secret" placeholder="Secret (Base32)"
-							onInput="onValueChanged()">
-					</td>
-					<td class="pb-3">
-						<button class="btn btn-primary" id="random" onClick="onRandomClicked()">Random</button>
-					</td>
-				</tr>
-				<tr>
-					<td class="shrink left">
-						<label for="digits">Digits</label>
-					</td>
-					<td>
-						<input class="form-range" onInput="update(this, 'digits-display')" name="digits" type="range"
-							id="digits" value="6" step="1" max="12" min="6">
-					</td>
-					<td id="digits-display" class="shrink left">
-						6
-					</td>
-					<td id="lock-display" class="shrink left">
-						<div class="form-check">
-							<label class="form-check-label" class="lock-label" for="lock">Lock</label>
-							<input class="form-check-input" id="lock" type="checkbox" name="lock"
-								onClick="onLockClicked()">
+					</div>
+					<div class="pb-4 row">
+						<div class="col input-group">
+							<span class="input-group-text">Secret</span>
+							<input class="form-control" id="secret" type="text" name="secret"
+								onInput="onValueChanged()">
+							<button class="btn btn-primary" id="random" onClick="onRandomClicked()">Random</button>
 						</div>
-					</td>
-					<td>
-						<select class="form-select" id="period" name="period" onChange="onValueChanged()"
-							onBlur="onValueChanged()">
-							<option value="15">15s</option>
-							<option value="30" selected="selected">30s</option>
-							<option value="60">1m</option>
-							<option value="120">2m</option>
-							<option value="300">5m</option>
-							<option value="600">10m</option>
-						</select>
-					</td>
-				</tr>
-			</table>
-		</div>
+					</div>
+					<div class="pb-4 row">
+						<div class="col input-group">
+							<span class="input-group-text">Issuer (optional)</span>
+							<input class="form-control" id="issuer" type="text" name="issuer"
+								onInput="onValueChanged()">
+						</div>
+						<div class="col input-group">
+							<span class="input-group-text">Image URL (optional)</span>
+							<input class="form-control" id="image" type="text" name="image" onInput="onValueChanged()">
+						</div>
+					</div>
+					<div class="pb-4 row">
+						<div class="col input-group">
+							<span class="input-group-text">Period</span>
+							<select class="form-select" id="period" name="period" onChange="onValueChanged()"
+								onBlur="onValueChanged()">
+								<option value="15">15 seconds</option>
+								<option value="30" selected="selected">30 seconds</option>
+								<option value="60">1 minute</option>
+								<option value="120">2 minutes</option>
+							</select>
+						</div>
+					</div>
+					<!-- <div class="row">
+						<div class="col input-group"><span class="input-group-text"></span></div>
+					</div> -->
+				</div>
+
+				<!-- <table>
+					<tr>
+						<td class="pb-3 shrink left">
+							<div class="form-check">
+								<label class="form-check-label" for="counter">Counter</label>
+								<input class="form-check-input" id="counter" type="radio" name="type" value="hotp"
+									onChange="onValueChanged()" checked="checked">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="pb-3 shrink left">
+							<div class="form-check">
+								<label class="form-check-label" for="timeout">Timeout</label>
+								<input class="form-check-input" id="timeout" type="radio" name="type" value="totp"
+									onChange="onValueChanged()">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="shrink left">
+							<label for="digits">Digits</label>
+						</td>
+						<td>
+							<input class="form-range" onInput="update(this, 'digits-display')" name="digits"
+								type="range" id="digits" value="6" step="1" max="12" min="6">
+						</td>
+						<td id="digits-display" class="shrink left">6</td>
+						<td id="lock-display" class="shrink left">
+							<div class="form-check">
+								<label class="form-check-label" class="lock-label" for="lock">Lock</label>
+								<input class="form-check-input" id="lock" type="checkbox" name="lock"
+									onClick="onLockClicked()">
+							</div>
+						</td>
+					</tr>
+				</table> -->
+			</div>
+		</section>
 	</main>
 
-	<footer>
+	<footer class="border-top bg-body-secondary p-4 mt-5">
 		<div class="container">
-			<p>For an explanation of fields, please see the
-				<a href="https://github.com/google/google-authenticator/wiki/Key-Uri-Format">
-					OTP Key URI Format</a> page.
-			</p>
-
-			<p>This QR code generator does not transmit any information.
-				Don't believe us?
-				<a href="https://github.com/freeotp/freeotp.github.io">Read the code</a>!
-				It does, however, fetch the image at the URL specified.
-				It might be possible for a malicious web server to use this request for
-				tracking. Since FreeOTP does not control the servers responding to the
-				requests on the URLs you provide, we cannot protect you from tracking.
-				Caveat emptor.
-			</p>
+			<div class="row">
+				<ul class="col-2 list-unstyled">
+					<h5>About</h5>
+					<li><a href="/privacy.html">Privacy</a></li>
+					<li><a href="https://github.com/freeotp/">Source Code</a></li>
+				</ul>
+				<ul class="col-2 list-unstyled">
+					<h5>Tools</h5>
+					<li><a href="/qrcode.html">QR Code Generator</a></li>
+				</ul>
+				<div id="copyright">© 2023 <a href="https://www.redhat.com/">Red Hat, Inc.</a></div>
+			</div>
 		</div>
 	</footer>
 

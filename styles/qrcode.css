@@ -1,20 +1,5 @@
-table,
-button,
-select,
-label,
-input[type="range"],
-input[type="text"] {
-  width: 100%;
-}
-
-main {
-  text-align: center;
-  margin: auto;
-}
-
-#urilink {
-  display: inline-block;
-  margin: 0 auto 0.5em auto;
+#urilink :is(*, ::after, ::before) {
+  box-sizing: unset;
 }
 
 #qrcode {
@@ -23,27 +8,15 @@ main {
   display: block;
 }
 
-#qrcode img:last-child {
-  height: 100%;
-  width: 100%;
-}
-
 #preview {
   position: absolute;
   padding: calc(100% / 3);
   height: calc(100% / 3);
   width: calc(100% / 3);
-  left: 0;
-  top: 0;
 }
 
-#digits-display {
-  text-align: left;
-  width: 2em;
-}
-
-.shrink {
-  width: 1%;
+main section .container {
+  padding-top: 75px;
 }
 
 input[type="text"].error {
