@@ -8,10 +8,6 @@ a:hover {
   text-decoration: underline !important;
 }
 
-header {
-  z-index: 1;
-}
-
 #logo {
   height: 48px;
 }
