@@ -23,6 +23,11 @@ main {
   display: block;
 }
 
+#qrcode img:last-child {
+  height: 100%;
+  width: 100%;
+}
+
 #preview {
   position: absolute;
   padding: calc(100% / 3);
@@ -32,50 +37,15 @@ main {
   top: 0;
 }
 
-#qrcode img:last-child {
-  height: 100%;
-  width: 100%;
-}
-
 #digits-display {
   text-align: left;
   width: 2em;
-}
-
-td {
-  font-size: 0.9em;
-}
-
-td:last-of-type {
-  width: 5.5em;
-}
-
-td:not(:first-of-type) {
-  padding-left: 0.5em;
 }
 
 .shrink {
   width: 1%;
 }
 
-.left {
-  text-align: left;
-}
-
-label {
-  display: inline-block;
-  white-space: nowrap;
-}
-
-input[type="text"] {
-  border: 1px solid;
-  height: 100%;
-}
-
-input[type="text"]:not(.error) {
-  border-color: black;
-}
-
 input[type="text"].error {
-  border-color: red;
+  border-color: var(--bs-warning);
 }

@@ -14,7 +14,7 @@
 	<meta charset="UTF-8">
 </head>
 
-<body>
+<body data-bs-theme="dark">
 	<header>
 		<div class="container">
 			<h1><a href="./">FreeOTP</a></h1>
@@ -33,11 +33,12 @@
 			<table>
 				<tr>
 					<td colspan="4">
-						<input id="issuer" type="text" name="issuer" placeholder="Issuer (optional)"
-							onInput="onValueChanged()">
+						<input class="form-control" id="issuer" type="text" name="issuer"
+							placeholder="Issuer (optional)" onInput="onValueChanged()">
 					</td>
 					<td class="shrink left">
-						<select id="algorithm" name="algorithm" onChange="onValueChanged()" onBlur="onValueChanged()">
+						<select class="form-select" id="algorithm" name="algorithm" onChange="onValueChanged()"
+							onBlur="onValueChanged()">
 							<option value="SHA1">SHA1</option>
 							<option value="SHA224">SHA224</option>
 							<option value="SHA256" selected="selected">SHA256</option>
@@ -48,31 +49,37 @@
 				</tr>
 				<tr>
 					<td colspan="4">
-						<input id="account" type="text" name="account" placeholder="Account" onInput="onValueChanged()">
-					</td>
-					<td class="shrink left">
-						<label for="counter">Counter</label>
-						<input id="counter" type="radio" name="type" value="hotp" onChange="onValueChanged()"
-							checked="checked">
-					</td>
-				</tr>
-				<tr>
-					<td colspan="4">
-						<input id="image" type="text" name="image" placeholder="Image URL (optional)"
+						<input class="form-control" id="account" type="text" name="account" placeholder="Account"
 							onInput="onValueChanged()">
 					</td>
 					<td class="shrink left">
-						<label for="timeout">Timeout</label>
-						<input id="timeout" type="radio" name="type" value="totp" onChange="onValueChanged()">
+						<div class="form-check">
+							<label class="form-check-label" for="counter">Counter</label>
+							<input class="form-check-input" id="counter" type="radio" name="type" value="hotp"
+								onChange="onValueChanged()" checked="checked">
+						</div>
 					</td>
 				</tr>
 				<tr>
 					<td colspan="4">
-						<input id="secret" type="text" name="secret" placeholder="Secret (Base32)"
+						<input class="form-control" id="image" type="text" name="image"
+							placeholder="Image URL (optional)" onInput="onValueChanged()">
+					</td>
+					<td class="shrink left">
+						<div class="form-check">
+							<label class="form-check-label" for="timeout">Timeout</label>
+							<input class="form-check-input" id="timeout" type="radio" name="type" value="totp"
+								onChange="onValueChanged()">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<input class="form-control" id="secret" type="text" name="secret" placeholder="Secret (Base32)"
 							onInput="onValueChanged()">
 					</td>
 					<td>
-						<button id="random" onClick="onRandomClicked()">Random</button>
+						<button class="btn btn-primary" id="random" onClick="onRandomClicked()">Random</button>
 					</td>
 				</tr>
 				<tr>
@@ -80,18 +87,22 @@
 						<label for="digits">Digits</label>
 					</td>
 					<td>
-						<input onInput="update(this, 'digits-display')" name="digits" type="range" id="digits" value="6"
-							step="1" max="12" min="6">
+						<input class="form-range" onInput="update(this, 'digits-display')" name="digits" type="range"
+							id="digits" value="6" step="1" max="12" min="6">
 					</td>
 					<td id="digits-display" class="shrink left">
 						6
 					</td>
 					<td id="lock-display" class="shrink left">
-						<label class="lock-label" for="lock">Lock</label>
-						<input id="lock" type="checkbox" name="lock" onClick="onLockClicked()">
+						<div class="form-check">
+							<label class="form-check-label" class="lock-label" for="lock">Lock</label>
+							<input class="form-check-input" id="lock" type="checkbox" name="lock"
+								onClick="onLockClicked()">
+						</div>
 					</td>
 					<td>
-						<select id="period" name="period" onChange="onValueChanged()" onBlur="onValueChanged()">
+						<select class="form-select" id="period" name="period" onChange="onValueChanged()"
+							onBlur="onValueChanged()">
 							<option value="15">15s</option>
 							<option value="30" selected="selected">30s</option>
 							<option value="60">1m</option>
