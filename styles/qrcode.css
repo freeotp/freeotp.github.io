@@ -1,9 +1,4 @@
-table,
-button,
-select,
-label,
-input[type="range"],
-input[type="text"] {
+table, button, select, label, input[type="range"], input[type="text"] {
   width: 100%;
 }
 
