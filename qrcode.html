@@ -32,11 +32,11 @@
 
 			<table>
 				<tr>
-					<td colspan="4">
+					<td class="pb-3" colspan="4">
 						<input class="form-control" id="issuer" type="text" name="issuer"
 							placeholder="Issuer (optional)" onInput="onValueChanged()">
 					</td>
-					<td class="shrink left">
+					<td class="pb-3 shrink left">
 						<select class="form-select" id="algorithm" name="algorithm" onChange="onValueChanged()"
 							onBlur="onValueChanged()">
 							<option value="SHA1">SHA1</option>
@@ -48,11 +48,11 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="4">
+					<td class="pb-3" colspan="4">
 						<input class="form-control" id="account" type="text" name="account" placeholder="Account"
 							onInput="onValueChanged()">
 					</td>
-					<td class="shrink left">
+					<td class="pb-3 shrink left">
 						<div class="form-check">
 							<label class="form-check-label" for="counter">Counter</label>
 							<input class="form-check-input" id="counter" type="radio" name="type" value="hotp"
@@ -61,11 +61,11 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="4">
+					<td class="pb-3" colspan="4">
 						<input class="form-control" id="image" type="text" name="image"
 							placeholder="Image URL (optional)" onInput="onValueChanged()">
 					</td>
-					<td class="shrink left">
+					<td class="pb-3 shrink left">
 						<div class="form-check">
 							<label class="form-check-label" for="timeout">Timeout</label>
 							<input class="form-check-input" id="timeout" type="radio" name="type" value="totp"
@@ -74,11 +74,11 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="4">
+					<td class="pb-3" colspan="4">
 						<input class="form-control" id="secret" type="text" name="secret" placeholder="Secret (Base32)"
 							onInput="onValueChanged()">
 					</td>
-					<td>
+					<td class="pb-3">
 						<button class="btn btn-primary" id="random" onClick="onRandomClicked()">Random</button>
 					</td>
 				</tr>
