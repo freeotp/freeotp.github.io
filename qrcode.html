@@ -2,128 +2,145 @@
 <html lang="en">
 
 <head>
-	<title>FreeOTP - QR Code Generator</title>
-	<link rel="stylesheet" type="text/css" href="/styles/common.css" media="screen">
-	<link rel="stylesheet" type="text/css" href="/styles/qrcode.css" media="screen">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-	<script src="/lib/base32.js"></script>
-	<script src="/lib/qrcode.js"></script>
-	<script src="/scripts/qrcode.js"></script>
-	<meta name="viewport" content="width=device-width,initial-scale=1.0">
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/freeotp.svg" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/styles/common.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/styles/qrcode.css" media="screen">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="/lib/base32.js"></script>
+    <script src="/lib/qrcode.js"></script>
+    <script src="/scripts/qrcode.js"></script>
+    <title>FreeOTP >> QR Code Generator</title>
 </head>
 
-<body>
-	<header>
-		<div class="container">
-			<h1><a href="./">FreeOTP</a></h1>
-			Two-Factor Authentication
-		</div>
-	</header>
+<body data-bs-theme="dark">
+    <header class="bg-body-tertiary border-bottom container-fluid position-fixed">
+        <div class="container">
+            <nav class="d-flex navbar">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/index.html">
+                        <img class="rounded" id="logo" src="/img/freeotp.svg" alt="FreeOTP Logo">
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-	<main>
-		<div class="container">
-			<a id="urilink">
-				<div id="qrcode">
-					<img id="preview" alt="QR Code Preview" src="img/freeotp.svg" onError="onImageError()">
-				</div>
-			</a>
+    <main>
+        <section class="p-5">
+            <div class="container">
+                <a class="d-flex justify-content-center" id="urilink">
+                    <div class="mb-5" id="qrcode">
+                        <img id="preview" alt="QR Code Preview" src="img/freeotp.svg" onError="onImageError()">
+                    </div>
+                </a>
 
-			<table>
-				<tr>
-					<td colspan="4">
-						<input id="issuer" type="text" name="issuer" placeholder="Issuer (optional)"
-							onInput="onValueChanged()">
-					</td>
-					<td class="shrink left">
-						<select id="algorithm" name="algorithm" onChange="onValueChanged()" onBlur="onValueChanged()">
-							<option value="SHA1">SHA1</option>
-							<option value="SHA224">SHA224</option>
-							<option value="SHA256" selected="selected">SHA256</option>
-							<option value="SHA384">SHA384</option>
-							<option value="SHA512">SHA512</option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="4">
-						<input id="account" type="text" name="account" placeholder="Account" onInput="onValueChanged()">
-					</td>
-					<td class="shrink left">
-						<label for="counter">Counter</label>
-						<input id="counter" type="radio" name="type" value="hotp" onChange="onValueChanged()"
-							checked="checked">
-					</td>
-				</tr>
-				<tr>
-					<td colspan="4">
-						<input id="image" type="text" name="image" placeholder="Image URL (optional)"
-							onInput="onValueChanged()">
-					</td>
-					<td class="shrink left">
-						<label for="timeout">Timeout</label>
-						<input id="timeout" type="radio" name="type" value="totp" onChange="onValueChanged()">
-					</td>
-				</tr>
-				<tr>
-					<td colspan="4">
-						<input id="secret" type="text" name="secret" placeholder="Secret (Base32)"
-							onInput="onValueChanged()">
-					</td>
-					<td>
-						<button id="random" onClick="onRandomClicked()">Random</button>
-					</td>
-				</tr>
-				<tr>
-					<td class="shrink left">
-						<label for="digits">Digits</label>
-					</td>
-					<td>
-						<input onInput="update(this, 'digits-display')" name="digits" type="range" id="digits" value="6"
-							step="1" max="12" min="6">
-					</td>
-					<td id="digits-display" class="shrink left">
-						6
-					</td>
-					<td id="lock-display" class="shrink left">
-						<label class="lock-label" for="lock">Lock</label>
-						<input id="lock" type="checkbox" name="lock" onClick="onLockClicked()">
-					</td>
-					<td>
-						<select id="period" name="period" onChange="onValueChanged()" onBlur="onValueChanged()">
-							<option value="15">15s</option>
-							<option value="30" selected="selected">30s</option>
-							<option value="60">1m</option>
-							<option value="120">2m</option>
-							<option value="300">5m</option>
-							<option value="600">10m</option>
-						</select>
-					</td>
-				</tr>
-			</table>
-		</div>
-	</main>
+                <div>
+                    <div class="row mb-4">
+                        <div class="col input-group">
+                            <span class="input-group-text">Account</span>
+                            <input class="form-control" id="account" type="text" name="account"
+                                onInput="onValueChanged()">
+                        </div>
+                        <div class="col input-group">
+                            <span class="input-group-text">Algorithm</span>
+                            <select class="form-select" id="algorithm" name="algorithm" onChange="onValueChanged()"
+                                onBlur="onValueChanged()">
+                                <option value="SHA1">SHA1</option>
+                                <option value="SHA224">SHA224</option>
+                                <option value="SHA256" selected="selected">SHA256</option>
+                                <option value="SHA384">SHA384</option>
+                                <option value="SHA512">SHA512</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col input-group">
+                            <span class="input-group-text">Secret</span>
+                            <input class="form-control" id="secret" type="text" name="secret"
+                                onInput="onValueChanged()">
+                            <button class="btn btn-primary" id="random" onClick="onRandomClicked()">Random</button>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col input-group">
+                            <span class="input-group-text">Issuer (optional)</span>
+                            <input class="form-control" id="issuer" type="text" name="issuer"
+                                onInput="onValueChanged()">
+                        </div>
+                        <div class="col input-group">
+                            <span class="input-group-text">Image URL (optional)</span>
+                            <input class="form-control" id="image" type="text" name="image" onInput="onValueChanged()">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col input-group">
+                            <span class="input-group-text">Period</span>
+                            <select class="form-select" id="period" name="period" onChange="onValueChanged()"
+                                onBlur="onValueChanged()">
+                                <option value="15">15 Seconds</option>
+                                <option value="30" selected="selected">30 Seconds</option>
+                                <option value="60">60 Seconds</option>
+                                <option value="120">120 Seconds</option>
+                            </select>
+                        </div>
+                        <div class="col input-group">
+                            <span class="input-group-text">Digits</span>
+                            <select name="digits" id="digits" class="form-select">
+                                <option value="6">6</option>
+                                <option value="8">8</option>
+                                <option value="10">10</option>
+                                <option value="12">12</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
-		integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
-		crossorigin="anonymous"></script>
+    <footer class="bg-body-secondary border-top p-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <h5>About</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/privacy.html">Privacy</a></li>
+                        <li><a href="https://github.com/freeotp/">Source Code</a></li>
+                    </ul>
+                </div>
+                <div class="col-2">
+                    <h5>Tools</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/qrcode.html">QR Code Generator</a></li>
+                    </ul>
+                </div>
+                <div id="copyright">© 2023 <a href="https://www.redhat.com/">Red Hat, Inc.</a></div>
+            </div>
+        </div>
+    </footer>
 
-	<script>
-		var qrcode = new QRCode(document.getElementById("qrcode"), {
-			correctLevel: QRCode.CorrectLevel.H,
-			text: window.location.href,
-			colorLight: "#ffffff",
-			colorDark: "#000000"
-		});
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+        crossorigin="anonymous"></script>
 
-		function update(from, to) {
-			document.getElementById(to).innerHTML = from.value;
-			onValueChanged();
-		}
+    <script>
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+            correctLevel: QRCode.CorrectLevel.H,
+            text: window.location.href,
+            colorLight: "#ffffff",
+            colorDark: "#000000"
+        });
 
-		document.getElementById("random").click();
-	</script>
+        function update(from, to) {
+            document.getElementById(to).innerHTML = from.value;
+            onValueChanged();
+        }
+
+        document.getElementById("random").click();
+    </script>
 </body>
 
 </html>

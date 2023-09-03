@@ -1,22 +1,3 @@
-table,
-button,
-select,
-label,
-input[type="range"],
-input[type="text"] {
-  width: 100%;
-}
-
-main {
-  text-align: center;
-  margin: auto;
-}
-
-#urilink {
-  display: inline-block;
-  margin: 0 auto 0.5em auto;
-}
-
 #qrcode {
   position: relative;
   max-width: 256px;
@@ -28,8 +9,6 @@ main {
   padding: calc(100% / 3);
   height: calc(100% / 3);
   width: calc(100% / 3);
-  left: 0;
-  top: 0;
 }
 
 #qrcode img:last-child {
@@ -37,45 +16,6 @@ main {
   width: 100%;
 }
 
-#digits-display {
-  text-align: left;
-  width: 2em;
-}
-
-td {
-  font-size: 0.9em;
-}
-
-td:last-of-type {
-  width: 5.5em;
-}
-
-td:not(:first-of-type) {
-  padding-left: 0.5em;
-}
-
-.shrink {
-  width: 1%;
-}
-
-.left {
-  text-align: left;
-}
-
-label {
-  display: inline-block;
-  white-space: nowrap;
-}
-
-input[type="text"] {
-  border: 1px solid;
-  height: 100%;
-}
-
-input[type="text"]:not(.error) {
-  border-color: black;
-}
-
 input[type="text"].error {
-  border-color: red;
+  border-color: var(--bs-warning);
 }
