@@ -31,38 +31,38 @@ function makeURI() {
 }
 
 function onImageError() {
-  document.getElementById("image").classList.add("error");
-  document.getElementById("preview").src = "img/error.svg";
+	document.getElementById("image").classList.add("error");
+	document.getElementById("preview").src = "img/error.svg";
 }
 
 function onValueChanged() {
-  function check(element, valid) {
-    var e = document.getElementById(element);
-    var v = valid(e.value);
-    e.classList.toggle("error", !v);
-    return v;
-  }
+	function check(element, valid) {
+		var e = document.getElementById(element);
+		var v = valid(e.value);
+		e.classList.toggle("error", !v);
+		return v;
+	}
 
-  var err = false;
-  err |= !check("account", (v) => v.length > 0 && !v.match(/:/));
-  err |= !check("secret", (v) => v.match(/^[a-z2-7]{26,}$/i));
-  err |= !check("issuer", (v) => !v.match(/:/));
+	var err = false;
+	err |= !check("account", (v) => v.length > 0 && !v.match(/:/));
+	err |= !check("secret", (v) => v.match(/^[a-z2-7]{26,}$/i));
+	err |= !check("issuer", (v) => !v.match(/:/));
 
-  var prv = document.getElementById("preview");
+	var prv = document.getElementById("preview");
 	var img = document.getElementById("image");
 	var src = img.value.length > 0 ? img.value : "img/freeotp.svg";
 
-  img.classList.remove("error");
-  prv.src = err ? "img/error.svg" : src;
+	img.classList.remove("error");
+	prv.src = err ? "img/error.svg" : src;
 
-  var uri = makeURI();
+	var uri = makeURI();
 	qrcode.clear();
 	qrcode.makeCode(uri);
-  document.getElementById("urilink").href = uri;
+	document.getElementById("urilink").href = uri;
 }
 
 function onRandomClicked() {
-  var secret = document.getElementById("secret");
+	var secret = document.getElementById("secret");
 	var bytes = new Uint8Array(35);
 
 	window.crypto.getRandomValues(bytes);
@@ -71,6 +71,6 @@ function onRandomClicked() {
 }
 
 function onLockClicked() {
-    var lock = document.getElementById("lock");
-    onValueChanged();
+	var lock = document.getElementById("lock");
+	onValueChanged();
 }

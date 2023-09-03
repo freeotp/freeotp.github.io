@@ -2,158 +2,139 @@
 <!-- vim: set nowrap ts=2 sw=2: -->
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <title>FreeOTP - QR Code Generator</title>
-		<link rel="stylesheet" type="text/css" href="/styles/common.css" media="screen" />
-		<link rel="stylesheet" type="text/css" href="/styles/qrcode.css" media="screen" />
-    <script type="text/javascript" src="lib/base32.js"></script>
-    <script type="text/javascript" src="lib/qrcode.js"></script>
-	  <script type="text/javascript" src="qrcode.js"></script>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-		<meta charset="UTF-8" />
-  </head>
 
-  <body>
-		<header>
-      <h1><a href="./">FreeOTP</a></h1>
-			Two-Factor Authentication
-		</header>
+<head>
+	<title>FreeOTP - QR Code Generator</title>
+	<link rel="stylesheet" type="text/css" href="/styles/common.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/styles/qrcode.css" media="screen" />
+	<script type="text/javascript" src="lib/base32.js"></script>
+	<script type="text/javascript" src="lib/qrcode.js"></script>
+	<script type="text/javascript" src="qrcode.js"></script>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta charset="UTF-8" />
+</head>
 
-		<main>
-      <a id="urilink">
-        <div id="qrcode">
-          <img id="preview" src="img/freeotp.svg" onError="onImageError()" />
-        </div>
-      </a>
+<body>
+	<header>
+		<h1><a href="./">FreeOTP</a></h1>
+		Two-Factor Authentication
+	</header>
 
-		  <table>
-			  <tr>
-				  <td colspan="4">
-					  <input
-					    id="issuer"
-						  type="text"
-						  name="issuer"
-						  placeholder="Issuer (optional)"
-						  onInput="onValueChanged()"
-						  />
-				  </td>
-				  <td class="shrink left">
-					  <select id="algorithm" name="algorithm"
-					    onChange="onValueChanged()"
-					    onBlur="onValueChanged()">
-						  <option value="SHA1">SHA1</option>
-						  <option value="SHA224">SHA224</option>
-						  <option value="SHA256" selected="selected">SHA256</option>
-						  <option value="SHA384">SHA384</option>
-						  <option value="SHA512">SHA512</option>
-					  </select>
-				  </td>
-			  </tr>
-			  <tr>
-				  <td colspan="4">
-					  <input
-					    id="account"
-						  type="text"
-						  name="account"
-						  placeholder="Account"
-						  onInput="onValueChanged()" />
-				  </td>
-				  <td class="shrink left">
-					  <label>
-						  <input type="radio" name="type" value="hotp"
-						    onChange="onValueChanged()" checked="checked"> Counter</input>
-					  </label>
-				  </td>
-			  </tr>
-			  <tr>
-				  <td colspan="4">
-					  <input id="image" type="text" name="image"
-					    placeholder="Image URL (optional)" onInput="onValueChanged()" />
-				  </td>
-				  <td class="shrink left">
-					  <label>
-						  <input type="radio" name="type" value="totp"
-						    onChange="onValueChanged()"> Timeout</input>
-					  </label>
-				  </td>
-			  </tr>
-			  <tr>
-				  <td colspan="4">
-					  <input id="secret" type="text" name="secret"
-					    placeholder="Secret (Base32)" onInput="onValueChanged()" />
-				  </td>
-				  <td>
-					  <button id="random" onClick="onRandomClicked()">Random</button>
-				  </td>
-			  </tr>
-			  <tr>
-				  <td class="shrink left">
-					  <label for="digits">Digits</label>
-				  </td>
-				  <td>
-					  <input
-						  onInput="update(this, 'digits-display')"
-						  name="digits"
-						  type="range"
-						  id="digits"
-						  value="6"
-						  step="1"
-						  max="12"
-						  min="6"
-						  />
-				  </td>
-				  <td id="digits-display" class="shrink left">
-					  6
-				  </td>
-          <td id="lock-display" class="shrink left">
-            <label class="lock-label" for="lock">Lock</label>
-            <input id="lock" type="checkbox" name="lock" onClick="onLockClicked()">
-          </td>
-          <td>
-					  <select id="period" name="period"
-					    onChange="onValueChanged()"
-					    onBlur="onValueChanged()">
-						  <option value="15">15s</option>
-						  <option value="30" selected="selected">30s</option>
-						  <option value="60">1m</option>
-						  <option value="120">2m</option>
-						  <option value="300">5m</option>
-					    <option value="600">10m</option>
-					  </select>
-			    </td>
-			  </tr>
-		  </table>
-		</main>
+	<main>
+		<a id="urilink">
+			<div id="qrcode">
+				<img id="preview" src="img/freeotp.svg" onError="onImageError()" />
+			</div>
+		</a>
 
-		<footer>
-			<p>For an explanation of fields, please see the
-			   <a href="https://github.com/google/google-authenticator/wiki/Key-Uri-Format">
-			   OTP Key URI Format</a> page.</p>
+		<table>
+			<tr>
+				<td colspan="4">
+					<input id="issuer" type="text" name="issuer" placeholder="Issuer (optional)"
+						onInput="onValueChanged()" />
+				</td>
+				<td class="shrink left">
+					<select id="algorithm" name="algorithm" onChange="onValueChanged()" onBlur="onValueChanged()">
+						<option value="SHA1">SHA1</option>
+						<option value="SHA224">SHA224</option>
+						<option value="SHA256" selected="selected">SHA256</option>
+						<option value="SHA384">SHA384</option>
+						<option value="SHA512">SHA512</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4">
+					<input id="account" type="text" name="account" placeholder="Account" onInput="onValueChanged()" />
+				</td>
+				<td class="shrink left">
+					<label>
+						<input type="radio" name="type" value="hotp" onChange="onValueChanged()" checked="checked">
+						Counter</input>
+					</label>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4">
+					<input id="image" type="text" name="image" placeholder="Image URL (optional)"
+						onInput="onValueChanged()" />
+				</td>
+				<td class="shrink left">
+					<label>
+						<input type="radio" name="type" value="totp" onChange="onValueChanged()"> Timeout</input>
+					</label>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4">
+					<input id="secret" type="text" name="secret" placeholder="Secret (Base32)"
+						onInput="onValueChanged()" />
+				</td>
+				<td>
+					<button id="random" onClick="onRandomClicked()">Random</button>
+				</td>
+			</tr>
+			<tr>
+				<td class="shrink left">
+					<label for="digits">Digits</label>
+				</td>
+				<td>
+					<input onInput="update(this, 'digits-display')" name="digits" type="range" id="digits" value="6"
+						step="1" max="12" min="6" />
+				</td>
+				<td id="digits-display" class="shrink left">
+					6
+				</td>
+				<td id="lock-display" class="shrink left">
+					<label class="lock-label" for="lock">Lock</label>
+					<input id="lock" type="checkbox" name="lock" onClick="onLockClicked()">
+				</td>
+				<td>
+					<select id="period" name="period" onChange="onValueChanged()" onBlur="onValueChanged()">
+						<option value="15">15s</option>
+						<option value="30" selected="selected">30s</option>
+						<option value="60">1m</option>
+						<option value="120">2m</option>
+						<option value="300">5m</option>
+						<option value="600">10m</option>
+					</select>
+				</td>
+			</tr>
+		</table>
+	</main>
 
-			<p>This QR code generator does not transmit any information.
-			   Don't believe us?
-				 <a href="https://github.com/freeotp/freeotp.github.io">Read the code</a>!
-			   It does, however, fetch the image at the URL specified.
-				 It might be possible for a malicious web server to use this request for
-				 tracking. Since FreeOTP does not control the servers responding to the
-				 requests on the URLs you provide, we cannot protect you from tracking.
-				 Caveat emptor.</p>
-		</footer>
+	<footer>
+		<p>For an explanation of fields, please see the
+			<a href="https://github.com/google/google-authenticator/wiki/Key-Uri-Format">
+				OTP Key URI Format</a> page.
+		</p>
 
-		<script type="text/javascript">
-      var qrcode = new QRCode(document.getElementById("qrcode"), {
-	      correctLevel : QRCode.CorrectLevel.H,
-	      text: window.location.href,
-	      colorLight : "#ffffff",
-	      colorDark : "#000000"
-      });
+		<p>This QR code generator does not transmit any information.
+			Don't believe us?
+			<a href="https://github.com/freeotp/freeotp.github.io">Read the code</a>!
+			It does, however, fetch the image at the URL specified.
+			It might be possible for a malicious web server to use this request for
+			tracking. Since FreeOTP does not control the servers responding to the
+			requests on the URLs you provide, we cannot protect you from tracking.
+			Caveat emptor.
+		</p>
+	</footer>
 
-      function update(from, to) {
-		    document.getElementById(to).innerHTML = from.value;
-	      onValueChanged();
-      }
+	<script type="text/javascript">
+		var qrcode = new QRCode(document.getElementById("qrcode"), {
+			correctLevel: QRCode.CorrectLevel.H,
+			text: window.location.href,
+			colorLight: "#ffffff",
+			colorDark: "#000000"
+		});
 
-      document.getElementById("random").click();
-		</script>
-  </body>
+		function update(from, to) {
+			document.getElementById(to).innerHTML = from.value;
+			onValueChanged();
+		}
+
+		document.getElementById("random").click();
+	</script>
+</body>
+
 </html>
