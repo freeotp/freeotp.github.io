@@ -9,8 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-</head>
-<title>FreeOTP</title>
+  <title>FreeOTP >> Home</title>
 </head>
 
 <body data-bs-theme="dark">
@@ -18,7 +17,7 @@
     <div class="container">
       <nav class="d-flex navbar">
         <div class="container-fluid">
-          <a class="navbar-brand" href="">
+          <a class="navbar-brand" href="/index.html">
             <img class="rounded" id="logo" src="/img/freeotp.svg" alt="FreeOTP Logo">
           </a>
         </div>
@@ -27,8 +26,8 @@
   </header>
 
   <main>
-    <section class="bg-body-secondary border-bottom d-flex align-items-center" id="welcome">
-      <div class="container p-5">
+    <section class="bg-body-secondary border-bottom d-flex align-items-center p-5" id="welcome">
+      <div class="container">
         <div class="row">
           <div class="col-6">
             <h1>FreeOTP</h1>
@@ -40,6 +39,7 @@
         </div>
       </div>
     </section>
+
     <section class="border-bottom d-flex align-items-center p-5" id="features">
       <div class="container">
         <div class="mb-5 text-center">
@@ -54,7 +54,7 @@
                 href="https://www.ietf.org/rfc/rfc6238.txt">TOTP</a> by default to secure your tokens. This means that
               no proprietary server-side component is necessary.</p>
           </div>
-          <div class="bg-body-tertiary col rounded m-2 p-4" id="encryption">
+          <div class="bg-body-tertiary col rounded m-2 p-4" id="simple-setup">
             <div class="mb-4 text-center"><i class="bi bi-qr-code-scan fs-1"></i></div>
             <h3>Simple Setup</h3>
             <p class="text-secondary">FreeOTP supports scaning a QR code to setup new tokens.</p>
@@ -74,7 +74,7 @@
             <p class="text-secondary">FreeOTP allows you to export and import your tokens. Don't worry about losing
               access.</p>
           </div>
-          <div class="bg-body-tertiary col rounded m-2 p-4" id="offline-access">
+          <div class="bg-body-tertiary col rounded m-2 p-4" id="open-source">
             <div class="mb-4 text-center"><i class="bi bi-braces fs-1"></i></div>
             <h3>Open-Source</h3>
             <p class="text-secondary">The source code is available on GitHub. FreeOTP is developed by volunteers and
@@ -93,15 +93,19 @@
   <footer class="bg-body-secondary p-4">
     <div class="container">
       <div class="row">
-        <ul class="col-2 list-unstyled">
+        <div class="col-2">
           <h5>About</h5>
-          <li><a href="/privacy.html">Privacy</a></li>
-          <li><a href="https://github.com/freeotp/">Source Code</a></li>
-        </ul>
-        <ul class="col-2 list-unstyled">
+          <ul class="list-unstyled">
+            <li><a href="/privacy.html">Privacy</a></li>
+            <li><a href="https://github.com/freeotp/">Source Code</a></li>
+          </ul>
+        </div>
+        <div class="col-2">
           <h5>Tools</h5>
-          <li><a href="/qrcode.html">QR Code Generator</a></li>
-        </ul>
+          <ul class="list-unstyled">
+            <li><a href="/qrcode.html">QR Code Generator</a></li>
+          </ul>
+        </div>
         <div id="copyright">© 2023 <a href="https://www.redhat.com/">Red Hat, Inc.</a></div>
       </div>
     </div>
