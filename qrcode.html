@@ -1,17 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<!-- vim: set nowrap ts=2 sw=2: -->
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
 	<title>FreeOTP - QR Code Generator</title>
-	<link rel="stylesheet" type="text/css" href="/styles/common.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="/styles/qrcode.css" media="screen" />
-	<script type="text/javascript" src="lib/base32.js"></script>
-	<script type="text/javascript" src="lib/qrcode.js"></script>
-	<script type="text/javascript" src="qrcode.js"></script>
+	<link rel="stylesheet" type="text/css" href="/styles/common.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="/styles/qrcode.css" media="screen">
+	<script src="lib/base32.js"></script>
+	<script src="lib/qrcode.js"></script>
+	<script src="qrcode.js"></script>
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
-	<meta charset="UTF-8" />
+	<meta charset="UTF-8">
 </head>
 
 <body>
@@ -23,7 +21,7 @@
 	<main>
 		<a id="urilink">
 			<div id="qrcode">
-				<img id="preview" src="img/freeotp.svg" onError="onImageError()" />
+				<img id="preview" alt="QR Code Preview" src="img/freeotp.svg" onError="onImageError()">
 			</div>
 		</a>
 
@@ -31,7 +29,7 @@
 			<tr>
 				<td colspan="4">
 					<input id="issuer" type="text" name="issuer" placeholder="Issuer (optional)"
-						onInput="onValueChanged()" />
+						onInput="onValueChanged()">
 				</td>
 				<td class="shrink left">
 					<select id="algorithm" name="algorithm" onChange="onValueChanged()" onBlur="onValueChanged()">
@@ -45,30 +43,28 @@
 			</tr>
 			<tr>
 				<td colspan="4">
-					<input id="account" type="text" name="account" placeholder="Account" onInput="onValueChanged()" />
+					<input id="account" type="text" name="account" placeholder="Account" onInput="onValueChanged()">
 				</td>
 				<td class="shrink left">
-					<label>
-						<input type="radio" name="type" value="hotp" onChange="onValueChanged()" checked="checked">
-						Counter</input>
-					</label>
+					<label for="counter">Counter</label>
+					<input id="counter" type="radio" name="type" value="hotp" onChange="onValueChanged()"
+						checked="checked">
 				</td>
 			</tr>
 			<tr>
 				<td colspan="4">
 					<input id="image" type="text" name="image" placeholder="Image URL (optional)"
-						onInput="onValueChanged()" />
+						onInput="onValueChanged()">
 				</td>
 				<td class="shrink left">
-					<label>
-						<input type="radio" name="type" value="totp" onChange="onValueChanged()"> Timeout</input>
-					</label>
+					<label for="timeout">Timeout</label>
+					<input id="timeout" type="radio" name="type" value="totp" onChange="onValueChanged()">
 				</td>
 			</tr>
 			<tr>
 				<td colspan="4">
 					<input id="secret" type="text" name="secret" placeholder="Secret (Base32)"
-						onInput="onValueChanged()" />
+						onInput="onValueChanged()">
 				</td>
 				<td>
 					<button id="random" onClick="onRandomClicked()">Random</button>
@@ -80,7 +76,7 @@
 				</td>
 				<td>
 					<input onInput="update(this, 'digits-display')" name="digits" type="range" id="digits" value="6"
-						step="1" max="12" min="6" />
+						step="1" max="12" min="6">
 				</td>
 				<td id="digits-display" class="shrink left">
 					6
@@ -120,7 +116,7 @@
 		</p>
 	</footer>
 
-	<script type="text/javascript">
+	<script>
 		var qrcode = new QRCode(document.getElementById("qrcode"), {
 			correctLevel: QRCode.CorrectLevel.H,
 			text: window.location.href,
