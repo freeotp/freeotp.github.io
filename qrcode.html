@@ -95,6 +95,15 @@
                                 <option value="12">12</option>
                             </select>
                         </div>
+                        <div class="col-2 btn-group">
+                            <input class="btn-check" id="counter" type="radio" name="type" value="hotp"
+                                onChange="onValueChanged()" autocomplete="off" />
+                            <label class="btn btn-primary" for="counter">Counter</label>
+
+                            <input class="btn-check" id="timeout" type="radio" name="type" value="totp"
+                                onChange="onValueChanged()" autocomplete="off" checked />
+                            <label class="btn btn-primary" for="timeout">Timeout</label>
+                        </div>
                     </div>
                 </div>
             </div>
