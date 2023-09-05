@@ -30,8 +30,8 @@
 
     <main>
         <section class="p-5">
-            <div class="container bg-body-tertiary border rounded px-4">
-                <div class="d-flex justify-content-center my-5">
+            <div class="container bg-body-tertiary border rounded p-4">
+                <div class="bg-body d-flex justify-content-center rounded mb-4 py-4">
                     <a class="bg-white d-flex rounded" id="urilink">
                         <div class="m-2" id="qrcode">
                             <img id="preview" alt="QR Code Preview" src="img/freeotp.svg" onError="onImageError()">
@@ -39,7 +39,7 @@
                     </a>
                 </div>
 
-                <div class="pb-5">
+                <div>
                     <div class="row mb-3">
                         <div class="col input-group">
                             <span class="input-group-text">Account</span>
@@ -77,7 +77,7 @@
                             <input class="form-control" id="image" type="text" name="image" onInput="onValueChanged()">
                         </div>
                     </div>
-                    <div class="row mb-3">
+                    <div class="row">
                         <div class="col input-group">
                             <span class="input-group-text">Period</span>
                             <select class="form-select" id="period" name="period" onChange="onValueChanged()"
