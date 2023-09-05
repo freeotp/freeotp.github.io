@@ -1,3 +1,7 @@
+#urilink {
+  width: fit-content;
+}
+
 #qrcode {
   position: relative;
   max-width: 256px;
