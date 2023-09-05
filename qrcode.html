@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/img/freeotp.svg" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="/styles/common.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="/styles/qrcode.css" media="screen">
+    <link type="image/x-icon" href="/img/freeotp.svg" rel="shortcut icon">
+    <link type="text/css" href="/styles/common.css" rel="stylesheet" media="screen">
+    <link type="text/css" href="/styles/qrcode.css" rel="stylesheet" media="screen">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="/lib/base32.js"></script>
@@ -34,7 +34,7 @@
                 <div class="bg-body d-flex justify-content-center rounded mb-4 py-4">
                     <a class="bg-white d-flex rounded" id="urilink">
                         <div class="m-2" id="qrcode">
-                            <img id="preview" alt="QR Code Preview" src="img/freeotp.svg" onError="onImageError()">
+                            <img id="preview" src="img/freeotp.svg" alt="QR Code Preview" onError="onImageError()">
                         </div>
                     </a>
                 </div>
@@ -43,7 +43,7 @@
                     <div class="row mb-3">
                         <div class="col input-group">
                             <span class="input-group-text">Account</span>
-                            <input class="form-control" id="account" type="text" name="account"
+                            <input class="form-control" id="account" name="account" type="text"
                                 onInput="onValueChanged()">
                         </div>
                         <div class="col input-group">
@@ -61,7 +61,7 @@
                     <div class="row mb-3">
                         <div class="col input-group">
                             <span class="input-group-text">Secret</span>
-                            <input class="form-control" id="secret" type="text" name="secret"
+                            <input class="form-control" id="secret" name="secret" type="text"
                                 onInput="onValueChanged()">
                             <button class="btn btn-primary" id="random" onClick="onRandomClicked()">Random</button>
                         </div>
@@ -69,12 +69,12 @@
                     <div class="row mb-3">
                         <div class="col input-group">
                             <span class="input-group-text">Issuer (optional)</span>
-                            <input class="form-control" id="issuer" type="text" name="issuer"
+                            <input class="form-control" id="issuer" name="issuer" type="text"
                                 onInput="onValueChanged()">
                         </div>
                         <div class="col input-group">
                             <span class="input-group-text">Image URL (optional)</span>
-                            <input class="form-control" id="image" type="text" name="image" onInput="onValueChanged()">
+                            <input class="form-control" id="image" name="image" type="text" onInput="onValueChanged()">
                         </div>
                     </div>
                     <div class="row">
@@ -90,7 +90,7 @@
                         </div>
                         <div class="col input-group">
                             <span class="input-group-text">Digits</span>
-                            <select name="digits" id="digits" class="form-select">
+                            <select class="form-select" id="digits" name="digits">
                                 <option value="6">6</option>
                                 <option value="8">8</option>
                                 <option value="10">10</option>
@@ -98,12 +98,12 @@
                             </select>
                         </div>
                         <div class="col-2 btn-group">
-                            <input class="btn-check" id="counter" type="radio" name="type" value="hotp"
-                                onChange="onValueChanged()" autocomplete="off" />
+                            <input class="btn-check" id="counter" name="type" type="radio" value="hotp"
+                                onChange="onValueChanged()" autocomplete="off">
                             <label class="btn btn-primary" for="counter">HOTP</label>
 
-                            <input class="btn-check" id="timeout" type="radio" name="type" value="totp"
-                                onChange="onValueChanged()" autocomplete="off" checked />
+                            <input class="btn-check" id="timeout" name="type" type="radio" value="totp"
+                                onChange="onValueChanged()" autocomplete="off" checked>
                             <label class="btn btn-primary" for="timeout">TOTP</label>
                         </div>
                     </div>
