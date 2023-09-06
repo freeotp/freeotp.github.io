@@ -1,0 +1,12 @@
+#welcome {
+    height: 100vh;
+    max-height: 576px;
+}
+
+#welcome p {
+    max-width: 444px;
+}
+
+#features i {
+    font-size: 5rem !important;
+}

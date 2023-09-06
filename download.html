@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/styles/common.css" rel="stylesheet">
+    <link href="/styles/download.css" rel="stylesheet">
+    <link type="image/x-icon" href="/img/freeotp.svg" rel="shortcut icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <title>FreeOTP >> Download</title>
+</head>
+
+<body data-bs-theme="dark">
+    <header class="bg-body-tertiary border-bottom container-fluid position-fixed">
+        <div class="container">
+            <nav class="d-flex navbar">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/">
+                        <img class="rounded" id="logo" src="/img/freeotp.svg" alt="FreeOTP Logo">
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="p-5" id="download">
+            <div class="container">
+                <div class="row">
+                    <div class="bg-body-tertiary border col m-3 p-4 rounded text-center" id="android">
+                        <h3>Android</h3>
+                        <i class="bi bi-android2"></i>
+                        <div>
+                            <a class="btn btn-primary m-2"
+                                href="https://play.google.com/store/apps/details?id=org.fedorahosted.freeotp">Download
+                                (Google
+                                Play)</a>
+                            <a class="btn btn-primary m-2"
+                                href="https://f-droid.org/packages/org.fedorahosted.freeotp">Download (F-Droid)</a>
+                        </div>
+                    </div>
+                    <div class="bg-body-tertiary border col m-3 p-4 rounded text-center" id="apple">
+                        <h3>iPhone and iPad</h3>
+                        <i class="bi bi-apple"></i>
+                        <div>
+                            <a class="btn btn-primary m-2"
+                                href="https://apps.apple.com/us/app/freeotp-authenticator/id872559395">Download (App
+                                Store)</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-body-tertiary border-top p-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <h5>About</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/privacy.html">Privacy</a></li>
+                        <li><a href="https://github.com/freeotp/">Source Code</a></li>
+                    </ul>
+                </div>
+                <div class="col-2">
+                    <h5>Tools</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/qrcode.html">QR Code Generator</a></li>
+                    </ul>
+                </div>
+                <div id="copyright">© 2023 <a href="https://www.redhat.com/">Red Hat, Inc.</a></div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

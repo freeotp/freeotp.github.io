@@ -20,19 +20,6 @@ main {
   padding-top: 75px;
 }
 
-#welcome {
-  height: 100vh;
-  max-height: 576px;
-}
-
-#welcome p {
-  max-width: 444px;
-}
-
-#features i {
-  font-size: 4rem !important;
-}
-
 footer * {
   color: var(--bs-secondary-color);
 }
