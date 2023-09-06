@@ -31,7 +31,7 @@ function makeURI() {
 }
 
 function onImageError() {
-	document.getElementById("image").classList.add("error");
+	document.getElementById("image").classList.add("border-warning");
 	document.getElementById("preview").src = "img/error.svg";
 }
 
@@ -39,7 +39,7 @@ function onValueChanged() {
 	function check(element, valid) {
 		var e = document.getElementById(element);
 		var v = valid(e.value);
-		e.classList.toggle("error", !v);
+		e.classList.toggle("border-warning", !v);
 		return v;
 	}
 
@@ -52,7 +52,7 @@ function onValueChanged() {
 	var img = document.getElementById("image");
 	var src = img.value.length > 0 ? img.value : "img/freeotp.svg";
 
-	img.classList.remove("error");
+	img.classList.remove("border-warning");
 	prv.src = err ? "img/error.svg" : src;
 
 	var uri = makeURI();
