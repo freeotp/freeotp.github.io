@@ -1,3 +1,11 @@
+.col:first-child:not(.only-child) {
+  padding-right: .5rem;
+}
+
+.col:last-child:not(.only-child) {
+  padding-left: .5rem;
+}
+
 #urilink {
   width: fit-content;
 }
@@ -8,7 +16,6 @@
 
 #qrcode {
   position: relative;
-  max-width: 256px;
   display: block;
 }
 
@@ -22,4 +29,17 @@
 #qrcode img:last-child {
   height: 100%;
   width: 100%;
+}
+
+#secret-div input {
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 500px) {
+
+  #algorithm-div,
+  #digits-div,
+  #image-div {
+    display: none;
+  }
 }

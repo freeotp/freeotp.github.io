@@ -29,9 +29,9 @@
     </header>
 
     <main>
-        <section class="p-5">
-            <div class="container bg-body-tertiary border rounded p-4">
-                <div class="bg-body border d-flex justify-content-center rounded mb-4 py-4">
+        <section class="m-2 px-3 py-5">
+            <div class="container bg-body-tertiary border rounded p-3">
+                <div class="bg-body border d-flex justify-content-center rounded mb-3 p-3">
                     <a class="bg-white d-flex rounded" id="urilink">
                         <div class="m-2" id="qrcode">
                             <img id="preview" src="img/freeotp.svg" alt="QR Code Preview" onError="onImageError()">
@@ -41,12 +41,12 @@
 
                 <div>
                     <div class="row mb-3">
-                        <div class="col input-group">
+                        <div class="col input-group" id="account-div">
                             <span class="input-group-text">Account</span>
                             <input class="form-control" id="account" name="account" type="text"
                                 onInput="onValueChanged()">
                         </div>
-                        <div class="col input-group">
+                        <div class="col input-group" id="algorithm-div">
                             <span class="input-group-text">Algorithm</span>
                             <select class="form-select" id="algorithm" name="algorithm" onChange="onValueChanged()"
                                 onBlur="onValueChanged()">
@@ -59,7 +59,7 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <div class="col input-group">
+                        <div class="col input-group only-child" id="secret-div">
                             <span class="input-group-text">Secret</span>
                             <input class="form-control" id="secret" name="secret" type="text"
                                 onInput="onValueChanged()">
@@ -67,18 +67,18 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <div class="col input-group">
+                        <div class="col input-group" id="issuer-div">
                             <span class="input-group-text">Issuer (optional)</span>
                             <input class="form-control" id="issuer" name="issuer" type="text"
                                 onInput="onValueChanged()">
                         </div>
-                        <div class="col input-group">
+                        <div class="col input-group" id="image-div">
                             <span class="input-group-text">Image URL (optional)</span>
                             <input class="form-control" id="image" name="image" type="text" onInput="onValueChanged()">
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col input-group">
+                        <div class="col input-group" id="period-div">
                             <span class="input-group-text">Period</span>
                             <select class="form-select" id="period" name="period" onChange="onValueChanged()"
                                 onBlur="onValueChanged()">
@@ -88,7 +88,7 @@
                                 <option value="120">120 Seconds</option>
                             </select>
                         </div>
-                        <div class="col input-group">
+                        <div class="col input-group" id="digits-div">
                             <span class="input-group-text">Digits</span>
                             <select class="form-select" id="digits" name="digits">
                                 <option value="6">6</option>
@@ -97,7 +97,7 @@
                                 <option value="12">12</option>
                             </select>
                         </div>
-                        <div class="col-2 btn-group">
+                        <!-- <div class="col-2 btn-group">
                             <input class="btn-check" id="counter" name="type" type="radio" value="hotp"
                                 onChange="onValueChanged()" autocomplete="off">
                             <label class="btn btn-primary" for="counter">HOTP</label>
@@ -105,7 +105,7 @@
                             <input class="btn-check" id="timeout" name="type" type="radio" value="totp"
                                 onChange="onValueChanged()" autocomplete="off" checked>
                             <label class="btn btn-primary" for="timeout">TOTP</label>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

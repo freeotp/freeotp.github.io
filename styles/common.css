@@ -3,6 +3,10 @@ a {
   text-decoration: none !important;
 }
 
+a.btn:hover {
+  text-decoration: none !important;
+}
+
 a:hover {
   color: var(--bs-link-hover-color) !important;
   text-decoration: underline !important;
